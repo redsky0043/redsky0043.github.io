@@ -91,7 +91,7 @@ nav{
 .bottom-card{
     background: #414146;
     position: relative;
-    top: -30px
+    top: -30px;
 }
 .specialize-cards{
     display: flex;
@@ -325,6 +325,44 @@ footer h4{
         margin: 0;       
 }
 
+@media screen and ( max-width: 1110px){
+
+/*
+    #pic img{
+       width: 105%; 
+    } 
+
+    .specialize-container{
+        width: 95%; 
+    }
+    .top-card{
+        width: 220px; 
+    }
+*/
+    .specialize-container{
+        width: 90%;
+    }
+    .specialize-container p{
+        margin-top: 10px;
+        margin-bottom: 15px;
+        font-size: 20px;
+    }
+    #pic{
+       width: 100%; 
+    }
+    #pic img{
+       width: 93%;
+        left: 7px;   
+    }
+    #bot{
+        margin: 9px; 
+    }
+
+    .bottom-card{
+        top: -15px;  
+    }
+    
+}
 
 
 @media screen and ( max-width: 420px) {
