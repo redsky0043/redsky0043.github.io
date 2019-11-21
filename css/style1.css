@@ -156,6 +156,7 @@ nav{
 }
 body{
     height: 2500px;
+    
 }
 
 
@@ -250,6 +251,9 @@ footer h4{
     margin-top: 30px;
 }
 
+.contacts{
+   width: 95%; 
+}
 .contacts img{
     margin-right: 15px;
 }
@@ -269,7 +273,7 @@ footer h4{
     background-color: #414146;
     border: none;
     height: 30px;
-    width: 350px;
+    width: 70%;
     border-bottom: 2px #ffea00 solid;
     font-size: 20px;
     color: #fff;
