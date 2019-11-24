@@ -193,7 +193,7 @@ footer h4{
     font-weight: normal;
 }
 .footer-container{
-    width: 92%;
+    width: 90%;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 30% 36% 33%;
@@ -269,7 +269,7 @@ footer h4{
     background-color: #414146;
     border: none;
     height: 30px;
-    width: 350px;
+    width: 70%;
     border-bottom: 2px #ffea00 solid;
     font-size: 20px;
     color: #fff;
