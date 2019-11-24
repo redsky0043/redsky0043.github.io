@@ -321,8 +321,65 @@ footer h4{
         margin: 0;       
 }
 
+    
+    
+    
+@media screen and ( max-width: 1000px){
+    .top-slide{
+        margin: 0;
+    }
+    .feedback{
+        background-color: #414146;
+        border: none;
+        height: 30px;
+        width: 80%;
+        border-bottom: 2px #ffea00 solid;
+        font-size: 20px;
+        color: #fff;
+    }
+    .specialize-container{
+        width: 90%;
+    }
+    .specialize-container h3{
+        font-size: 25px;
+    }
+    .specialize-container p{
+        margin-top: 10px;
+        margin-bottom: 30px;
+        font-size: 16px;
+    }
+    .first-p{
+        margin: 20px;
+    }
+    .bottom-card{
+        background: #414146;
+        position: relative;
+        top: -30px
+    }
+    .second{
+        margin: 50px 0 0 0;
+    }
+    .third{
+        margin: 55px 0 4px 0;
+    }
+    .fourth{
+        margin: 37px 0 0 0;
+    }
+    .back{
+        background: #ffea00;
+    }
+    .back p{
+        font-size: 20px;
+    }
+}
 
-
+    
+    
+    
+    
+    
+    
+    
 @media screen and ( max-width: 420px) {
     
     .header-container{
