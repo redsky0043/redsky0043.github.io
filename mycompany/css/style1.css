@@ -216,10 +216,11 @@ main .main__about{
     padding: 100px 0 100px 0;
 }
 .contact__from h1,p{
+    width: auto;
     text-align: center;
 }
 .contact__wrapper{
-    width: 753px;
+    width: 80%;
     margin: 0 auto;
     color: #636363;
 }
@@ -238,7 +239,7 @@ form p{
     display: flex;
 }
 input{
-    width: 360px;
+    width: 90%;
     height: 40px;
     font-size: 20px;
     margin-bottom: 30px;
@@ -420,7 +421,67 @@ footer{
 
 
 
-
+@media screen and (max-width: 690px) {
+    .photo img{
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        margin: 20px auto;
+    }
+    .team__cards{
+        display: flex
+    }
+    
+    .name{
+        font-size: 25px;
+        margin-bottom: 7px;
+    }
+    .position{
+        font-size: 18px;
+        margin-bottom: 35px;
+    }
+    .about__position{
+        font-size: 16px;
+    }
+/*
+    .services__cards{
+        text-align: center;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        grid-column-gap: 20px;
+    }
+*/
+    .main__services h1{
+        text-align: center;
+        padding: 100px 0 30px 0;
+    }
+    .main__services img{
+        width: 160px;
+        height: 160px;
+    }
+    .main__services p{
+        color: #6c6c6c;
+        margin-bottom: 100px;
+    }
+    .services__card h4{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-size: 25px;
+    }
+    
+    .line1 img:not(:first-child){
+        display: none;
+    }
+    .line2 img:not(:first-child){
+        display: none;
+    }
+    .line3 img:not(:first-child){
+        display: none;
+    }
+    .line1 {
+        
+    }
+}
 
 
 
