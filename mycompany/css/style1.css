@@ -469,18 +469,8 @@ footer{
         font-size: 25px;
     }
     
-    .line1 img:not(:first-child){
-        display: none;
-    }
-    .line2 img:not(:first-child){
-        display: none;
-    }
-    .line3 img:not(:first-child){
-        display: none;
-    }
-    .line1 {
-        
-    }
+    
+    
 }
 
 
