@@ -30,7 +30,7 @@ header{
 }
 nav{
     margin-top: 56px;
-    margin-left: 20%;
+    margin-left: 29%;
     margin-bottom: 15px;
 }
 .topnav a{
@@ -176,7 +176,7 @@ main .main__about{
 }
 .main__clients img{
     margin-top: 10px;
-    margin-left: 15px;
+    margin-left: 30px;
 }
 .main__testimonials{
     background: #000;
@@ -408,19 +408,6 @@ footer{
     .wrapper p{
         text-align: center;
     }
-    .line1 img{
-        height: 150px;
-        width: 150px
-    }
-    .line2 img{
-        height: 150px;
-        width: 150px
-    }
-    .line3 img{
-        height: 150px;
-        width: 150px
-    }
-/*
     .line1 img:not(:first-child){
         display: none;
     }
@@ -430,7 +417,6 @@ footer{
     .line3 img:not(:first-child){
         display: none;
     }
-*/
 }
 
 
@@ -463,8 +449,8 @@ footer{
         display: grid;
         grid-template-columns: auto auto auto auto;
         grid-column-gap: 20px;
-    }*/
-
+    }
+*/
     .main__services h1{
         text-align: center;
         padding: 100px 0 30px 0;
@@ -482,18 +468,8 @@ footer{
         margin-bottom: 20px;
         font-size: 25px;
     }
-    .line1 img{
-        height: 110px;
-        width: 110px
-    }
-    .line2 img{
-        height: 110px;
-        width: 110px
-    }
-    .line3 img{
-        height: 110px;
-        width: 110px
-    }
+    
+    
     
 }
 
