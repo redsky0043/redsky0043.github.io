@@ -62,15 +62,15 @@ nav{
 .intro .intro-text{
     position: absolute;
     font-size: 62px;
-    right: 750px;
+    right: 650px;
     top: 220px;
 }
 .intro-contacts{
     background-color: #ffcc01;
     max-width: 590px;
     position: absolute;
-    right: 124px;
-    top: 534px;
+    right: 63px;
+    top: 535px;
     display: flex;
     justify-content: space-between;
     padding: 30px 50px;
@@ -128,6 +128,7 @@ nav{
 .apart h2{
     margin-bottom: 85px;
     font-size: 40px;
+    padding-left: 20px;
 }
 .card{
     max-width: 348px;
@@ -162,7 +163,7 @@ nav{
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
     grid-column-gap: 0px;
-    grid-row-gap: 30px;
+    grid-row-gap: 50px;
 }
 .apart input[type=text]{
     margin-top: 50px;
@@ -239,6 +240,7 @@ nav{
 .stepblock:hover{
     background-color: #ffcc01;
     color: #fff;
+    transition: background 0.2s linear;
 }
 .steps-container{
     margin-bottom: 50px;
@@ -299,6 +301,187 @@ nav{
     font-size: 25px;
     margin-bottom: 25px;
 }
+
+
+.agents{
+    background: #f6f5f4;
+    padding-top: 60px;
+    margin-top: 30px;
+}
+.agents h2{
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+.agents p{
+    font-size: 13px;
+    line-height: 30px;
+}
+.agents p:nth-child(3){
+    margin-bottom: 60px;
+}
+.agent-block{
+    display: flex;
+    justify-content: space-between;
+}
+.social i{
+    margin-right: 25px;
+    position: relative;
+    top: 7px;
+    color: #000;
+}
+.social i:last-child{
+    margin-right: 18px;
+}
+.social i:hover{
+/*    cursor: pointer;*/
+    color: #ffcc01;
+}
+.agent-card{
+    max-width: 344px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.agent-card:hover{
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+.agent-info{
+    padding-top: 10px;
+    padding-left: 25px;
+}
+.agent-name{
+    color: #ffcc01;
+}
+.agent-cards{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 95px;
+}
+
+
+.add{
+    padding-bottom: 100px;
+    padding-top: 90px;
+}
+.add-line{
+    display: flex;
+}
+.location{
+    font-size: 18px;
+    padding: 30px 87px 35px 55px;
+    background: #ffcc01;
+    display: inline-block;
+}
+.location i{
+    margin-right: 30px;
+    font-size: 25px;
+    position: relative;
+    top: 5px;
+    color: #fff;
+}
+.location-melbourn{
+    position: relative;
+    left: 100px;
+    bottom: 50px;
+}
+.location-australia{
+    position: relative;
+    left: 260px;
+    bottom: 50px;
+}
+.add-line h3{
+    font-size: 25px;
+    margin-top: 75px;
+    margin-bottom: 40px;
+    margin-left: 130px;
+}
+.add-line p{
+    font-size: 13px;
+    line-height: 30px;
+    margin-left: 130px;
+}
+.add-line-right p{
+    margin-left: 0;
+    margin-right: 130px;
+}
+.add-line h3:last-of-type{
+    margin-top: 25px;
+}
+.show-more{
+    font-size: 18px;
+    background: #1f373d;
+    padding: 30px 70px 30px 55px;
+    display: inline-block;
+    margin-left: 130px;
+    color: #fff;
+    margin-top: 60px;
+}
+.show-more:hover{
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5)
+}
+
+footer{
+    background: #1f373d;
+    color: white;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.footer-block{
+    display: flex;
+    justify-content: space-between;
+}
+.footer-block h3{
+    font-size: 40px;
+}
+.footer-search input{
+    width: 442px;
+    height: 70px;
+    color: #919eb1;
+    padding-left: 27px;
+    font-size: 15px;
+    background-image: url(../img/18.png);
+    background-repeat: no-repeat;
+    background-position: 94%;
+}
+hr{
+    opacity: 0.3;
+    margin-top: 47px;
+    margin-bottom: 70px;
+}
+.footer-links{
+    display: flex;
+    justify-content: space-between;
+    padding-right: 90px;
+}
+.footer-link{
+    display: flex;
+    flex-direction: column;
+}
+.footer-links-logo{
+    font-size: 25px;
+    margin-right: 26%;
+}
+.footer-link p{
+    text-transform: uppercase;
+    font-size: 13px;
+    color: #919eb1;
+    margin-bottom: 35px;
+}
+.footer-link a{
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+.footer-link a:hover{
+    opacity: 0.4;
+}
+
+
+
+
+
 
 
 
@@ -427,7 +610,7 @@ nav{
     .cards{
         grid-template-columns: repeat(1, 1fr);
         grid-template-rows: repeat(6, 1fr);
-        grid-row-gap: 10px;
+        grid-row-gap: 30px;
         justify-items: center;
     }
     .apart input[type=text]{
@@ -464,6 +647,87 @@ nav{
     }
     .serv-text{
         width: 100%;
+        
+    }
+    .serv-text h4{
+        margin-left: 15px;
+    }
+    .services h2{
+        margin-left: 15px;
+    }
+    .services p{
+        margin-left: 15px;
+    }
+    .agent-cards{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .agent-card{
+        margin-top: 20px;
+    }
+    .agents h2{
+        margin-left: 15px;
+    }
+    .agents p{
+        margin-left: 15px;
+    }
+    .add-line{
+        flex-direction: column;
+    }
+    .location{
+        font-size: 15px;
+        padding: 15px 10px 18px 11px;
+    }
+    .location-melbourn{
+        left: 100px;
+        bottom: 50px;
+    }
+    .location-australia{
+        left: 60px;
+        bottom: 50px;
+    }
+    .add-line h3{
+        font-size: 25px;
+        margin-top: 75px;
+        margin-bottom: 40px;
+        margin-left: 5%;
+    }
+    .add-line p{
+        margin-left: 5%;
+    }
+    .add-line-right p{
+        margin-left: 5%;
+        margin-right: 0;
+    }
+    .show-more{
+        font-size: 15px;
+        padding: 20px 50px 20px 35px;
+        margin-left: 25%;
+        margin-top: 20px;
+    }
+    
+    .footer-block{
+        flex-direction: column;
+    }
+    .footer-logo h3{
+        font-size: 35px;
+        text-align: center;
+    }
+    .footer-search input{
+        width: 80%;
+        height: 50px;
+        margin-top: 20px;
+    }
+    .footer-search{
+        display: flex;
+        justify-content: center;
+    }
+    .footer-links{
+        flex-wrap: wrap;
+        margin-left: 5%;
+        padding-right: 5%;
     }
 }
 
