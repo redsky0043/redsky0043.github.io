@@ -69,7 +69,7 @@ nav{
     background-color: #ffcc01;
     max-width: 590px;
     position: absolute;
-    right: 63px;
+    right: 124px;
     top: 535px;
     display: flex;
     justify-content: space-between;
@@ -241,6 +241,7 @@ nav{
     background-color: #ffcc01;
     color: #fff;
     transition: background 0.2s linear;
+    cursor: pointer;
 }
 .steps-container{
     margin-bottom: 50px;
