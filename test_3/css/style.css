@@ -9,9 +9,9 @@
     font-weight: normal;
     src: url(../fonts/HelveticaNeueLTStd-LtCn.woff) format('woff');
 }
-/* body {
+body {
     height: 100vh;
-} */
+}
 .contact {
     background-image: url(../img/1.jpg);
     background-repeat: no-repeat;
