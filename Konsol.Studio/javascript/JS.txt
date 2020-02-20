@@ -1,0 +1,9 @@
+document.querySelectorAll('tr.zA').forEach((element, index) => {
+    const isFirst = index === 0;
+    if (isFirst) {
+       return;
+    }
+    if((index % 2) == 0) {
+        element.style.display = 'none'
+    }
+})
