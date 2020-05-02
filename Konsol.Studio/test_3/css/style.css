@@ -9,9 +9,6 @@
     font-weight: normal;
     src: url(../fonts/HelveticaNeueLTStd-LtCn.woff) format('woff');
 }
-body {
-    height: 100vh;
-}
 .contact {
     background-image: url(../img/1.jpg);
     background-repeat: no-repeat;
@@ -176,7 +173,7 @@ br {
     font-family: 'Open Sans', sans-serif;
 }
 .contact__arrow{
-    margin: 21px 0 35px 0;
+    margin: 21px 0 150px 0;
 }
 
 

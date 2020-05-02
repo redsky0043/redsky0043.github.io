@@ -435,7 +435,7 @@ footer{
 
 
 
-@media screen and (max-width: 765px) {
+@media screen and (max-width: 690px) {
     .photo img{
         width: 200px;
         height: 200px;
@@ -483,25 +483,16 @@ footer{
         font-size: 25px;
     }
     .line1 img{
-        height: 210px;
-        width: 210px
+        height: 150px;
+        width: 150px
     }
     .line2 img{
-        height: 210px;
-        width: 210px
+        height: 150px;
+        width: 150px
     }
     .line3 img{
-        height: 210px;
-        width: 210px
-    }
-    .line1 img:not(:first-child){
-        display: none;
-    }
-    .line2 img:not(:first-child){
-        display: none;
-    }
-    .line3 img:not(:first-child){
-        display: none;
+        height: 150px;
+        width: 150px
     }
     
 }
