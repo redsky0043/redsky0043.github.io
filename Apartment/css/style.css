@@ -62,14 +62,14 @@ nav{
 .intro .intro-text{
     position: absolute;
     font-size: 62px;
-    right: 650px;
+    right: 1050px;
     top: 220px;
 }
 .intro-contacts{
     background-color: #ffcc01;
     max-width: 590px;
     position: absolute;
-    right: 124px;
+    right: 324px;
     top: 535px;
     display: flex;
     justify-content: space-between;
@@ -484,30 +484,14 @@ hr{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+@media screen and (max-width: 1366px){
+    .intro .intro-text{
+    right: 650px;
+    }
+    .intro-contacts {
+    right: 124px;
+    }
+}
 
 @media screen and (max-width: 765px) {
     .toggle{
