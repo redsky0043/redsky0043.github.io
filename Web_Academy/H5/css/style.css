@@ -5,7 +5,7 @@
 
 @font-face {
     font-family: "NewFont";  
-    src: url(/H5/fonts/PostNoBillsJaffna-SemiBold.woff); 
+    src: url(../fonts/PostNoBillsJaffna-SemiBold.woff); 
     font-style: normal; 
     font-weight: normal;
 }
