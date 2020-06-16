@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>HW4</title>
+</head>
+<body>
+    <form class="form" name="test" id="form">
+        <div class="form-header">
+            Stay in touch
+            <hr class="form-header-line">
+        </div>
+        <fieldset class="form-contact">
+            <legend class="form-contact__legend">Contact information</legend>
+                <div class="form-contact__area">
+                    <div class="form-contact__text">
+                        Name *
+                    </div>
+                    <input class="form-contact__input" required type="text" name="Name">
+                </div>
+                <div class="form-contact__area">
+                    <div class="form-contact__text">
+                        Phone
+                    </div>
+                    <input class="form-contact__input" type="text" name="Phone"> 
+                <div class="form-contact__area">
+                    <div class="form-contact__text">
+                        Email *
+                    </div>
+                    <input class="form-contact__input" required type="email" name="Email">
+                </div>
+        </fieldset>
+        <fieldset class="form-contact">
+            <legend class="form-contact__legend">Personal information</legend>
+                <div class="form-contact__area">
+                    <div class="form-contact__text">
+                        Age *
+                    </div>
+                    <input class="form-contact__input" required type="text" name="Age">
+                </div>
+                <div class="form-contact__sex">
+                    <div class="form-contact__text">
+                        Sex
+                    </div>
+                    <select class="form-contact__input form-contact__input-active" size="1" name="Sex">
+                        <option class="form-contact__option">
+                            Male
+                        </option>
+                        <option class="form-contact__option">
+                            Female
+                        </option>
+                    </select>
+                </div>
+                <div class="form-contact__textarea">
+                    <div class="form-contact__text">
+                        Something about yourself
+                    </div>
+                    <textarea class="form-contact__input field" name="about" id="form" cols="20" rows="5">Write please
+                    </textarea>
+                </div>
+        </fieldset>
+        <fieldset class="form-contact form-contact__animals">
+            <legend class="form-contact__legend">Choose your favorite animals</legend>
+                <div class="form-contact__checkbox">
+                    <div class="form-contact__row">
+                        <div class="form-contact__box"><input type="checkbox" name="animals" value="cat">
+                            Spider
+                        </div>
+                        <div class="form-contact__box"><input type="checkbox" name="animals" value="lion">
+                            Lion
+                        </div>
+                        <div class="form-contact__box"><input type="checkbox" name="animals" value="elephant">
+                            Elephant
+                        </div>
+                        <div class="form-contact__box"><input type="checkbox" name="animals" value="parrot">
+                            Dog
+                        </div>
+                    </div>
+                    <div class="form-contact__row">
+                        <div class="form-contact__box"><input type="checkbox" name="animals" value="cat">
+                            Cat
+                        </div>
+                        <div class="form-contact__box"><input type="checkbox" name="animals" value="lion">
+                            Monkey
+                        </div>
+                        <div class="form-contact__box"><input type="checkbox" name="animals" value="elephant">
+                            Fox
+                        </div>
+                        <div class="form-contact__box"><input type="checkbox" name="animals" value="parrot">
+                            Parrot
+                        </div>
+                    </div>
+                </div>
+        </fieldset>
+        <button class="form-btn" type="submit">Send information</button>
+    </form>
+</body>
+</html>
