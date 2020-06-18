@@ -38,23 +38,55 @@
 
 // Task#4
 
-let age = +prompt('write a number', '');
+// let age = +prompt('write a number', '');
 
-console.log(age);
+// if ((age >= 14) && (age <= 90)) {
+//     alert(true)
+// } else {
+//     alert(false)
+// }
 
-if ((age >= 14) && (age <= 90)) {
-    alert(true)
-} else {
-    alert(false)
-}
 
 
 
 
 // Task#5
 
-// let i = 0;
+// for (let i = 2; i <= 10; i++) {
+//     if (i % 2 == 0) {
+//       alert( i );
+//     }
+//   }
 
-// for (i <= 10 ) {
-//     alert
+
+
+
+// Task#6
+
+// function min(a,b) {
+//     if (a < b) {
+//         return a
+//     } else {return b}
 // }
+
+// alert(min(4,6));
+
+
+
+// Task#7
+
+let x = prompt("write x", '');
+let n = prompt("write n", '');
+
+function pow(x,n) {
+    
+    let result = x;
+
+    for (let i = 1; i < n; i++) {
+        result *= x;
+      }
+
+    return result
+}
+
+alert( pow(x, n) );
