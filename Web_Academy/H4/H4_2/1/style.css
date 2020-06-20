@@ -26,6 +26,7 @@ body{
     font-size: 20px;
     font-family: 'Quicksand', sans-serif;
     color: #c2c2c2;
+    outline: none;
 }
 
 .input__item:hover{

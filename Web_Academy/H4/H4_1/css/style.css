@@ -66,6 +66,10 @@ body{
     height: 30px;
     color: #5f5f5f;
     padding: 0 15px;
+    outline: none;
+}
+.form-contact__input:focus{
+    box-shadow:  0 0 7px 2px #aa97c5;
 }
 .field{
     height: 50px;
@@ -104,9 +108,10 @@ body{
     color: #fcca99;
 }
 .form-btn:active{
-    transition: all .2s ease-out;
+    transition: all .1s ease-out;
     box-shadow:  0 0 15px 2px #fcb099;
     color: #fcb099;
+    outline: none;
 }
 
 
