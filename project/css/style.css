@@ -150,6 +150,7 @@ body{
 .slide__marks{
     margin-top: 25px;
     display: flex;
+    justify-content: space-between;
 }
 
 .slide__mark{
