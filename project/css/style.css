@@ -5,7 +5,7 @@
 
 body{
     background: #E4F0FA;
-    margin: 50px 0;
+    margin: 50px 0 0 0;
 }
 
 .header{
@@ -15,8 +15,8 @@ body{
 }
 
 .btn{
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
     border: none;
     background: #E6EEF8;
     box-shadow: 2px 9px 30px rgba(170, 187, 201, 0.795345), -8px 5px 12px rgba(244, 248, 251, 0.345662), -13px -7px 15px #fff, -7px -7px 12px rgba(255, 255, 255, 0.0155704);
@@ -35,6 +35,7 @@ body{
 
 .basket{
     width: 60px;
+    z-index: -1;
 }
 
 .btn__num{
@@ -53,7 +54,15 @@ body{
 }
 
 .main{
-    margin: 44px 24px 76px 24px; 
+    margin: 44px 24px 76px 24px;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+}
+
+.main__photo__img{
+    border-radius: 50%;
+    box-shadow: 5px 9px 15px rgba(45, 55, 71, 0.276169);
 }
 
 .text{
@@ -102,7 +111,7 @@ body{
     margin-top: 30px;
     display: flex;
     justify-content: space-between;
-
+    align-items: center;
 }
 
 .slide__row__text{
@@ -163,4 +172,8 @@ body{
 
 .slide__mark:last-child{
     margin-right: 8px;
+}
+
+.whislist{
+    height: 200px;
 }
