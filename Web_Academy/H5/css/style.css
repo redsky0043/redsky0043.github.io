@@ -188,6 +188,7 @@ input:checked ~ .main__menu{
     opacity: 1;
     backdrop-filter: blur(20px);
     background-color: rgba(0, 0, 0, 0.11);
+    -webkit-backdrop-filter: blur(20px);
 }
 
 .info{
