@@ -1,5 +1,5 @@
 
-let arr = [
+let result = [
     {
     operation: '1+2+(3/3)',
     result: '4',
@@ -21,3 +21,7 @@ let arr = [
     result: '3',
     },
 ]
+
+
+
+

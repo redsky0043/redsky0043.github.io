@@ -1,3 +1,52 @@
-body{
-    background-color: darkred;
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#check{
+    display: none;
+}
+
+.modal{
+    display: none;
+    width: 200px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #888;
+    background-color: #fff;
+    position: absolute;
+    top: 20px;
+    left: 50px;
+}
+
+input:checked ~ .modal{
+    display: inherit;
+}
+
+.modal__btn{
+    cursor: pointer;
+    font-size: 30px;
+    color: #888;
+    line-height: 20px;
+}
+
+#btn{
+    position: absolute;
+    top: 41px;
+    left: 71px;
+    z-index: -1;
+    color: blue;
+}
+
+.modal__row{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+
+}
+
+.style{
+    padding: 10px;
+    border: 1px solid #888;
+    border-radius: 10px;
 }
