@@ -65,6 +65,12 @@ input:checked ~ .modal{
     color: #888;
 }
 
+.modal__alert{
+    margin-top: 10px;
+    color: #888;
+    text-align: center;
+}
+
 .modal__row__operation:hover{
     background-color: rgb(228, 227, 227);
     cursor: wait;

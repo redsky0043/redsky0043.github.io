@@ -7,24 +7,33 @@ let arr = [
     { operation: '9/3', result: '3', },
 ];
 
-let listHTML = "";
-
-arr.forEach(item => {
-    listHTML += `
-    <div class="modal__row">
-        <div class="modal__row__operation style">
-            ${item.operation}
-        </div>
-        <div class="modal__row__sym style">
-            =
-        </div>
-        <div class="modal__row__result style">
-            ${item.result}
-        </div>
+const renderList = smt => {
+   if ( smt.length == 0 ) {
+    list.innerHTML = `
+    <div class="modal__alert">
+        calculation results will be displayed here
     </div>
     `;
-});
+   }
+   else {
+    let listHTML = "";
+    smt.forEach(item => {
+        listHTML += `
+        <div class="modal__row">
+            <div class="modal__row__operation style">
+                ${item.operation}
+            </div>
+            <div class="modal__row__sym style">
+                =
+            </div>
+            <div class="modal__row__result style">
+                ${item.result}
+            </div>
+        </div>
+        `;
+    });
+    list.innerHTML = listHTML;
+   }
+};
 
-list.innerHTML = listHTML;
-
-
+renderList(arr);
