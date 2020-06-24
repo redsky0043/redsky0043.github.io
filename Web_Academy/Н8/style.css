@@ -49,4 +49,20 @@ input:checked ~ .modal{
     padding: 10px;
     border: 1px solid #888;
     border-radius: 10px;
+    font-size: 18px;
+}
+
+.modal__row__sym{
+    border: none;
+    font-weight: bold;
+}
+
+.modal__row__operation:hover{
+    background-color: rgb(228, 227, 227);
+    cursor: wait;
+}
+
+.modal__row__result:hover{
+    background-color: rgb(228, 227, 227);
+    cursor: wait;
 }
