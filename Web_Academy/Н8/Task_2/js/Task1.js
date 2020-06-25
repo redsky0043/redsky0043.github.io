@@ -77,7 +77,7 @@ const renderSidebar = smt => {
     let listHTML = "";
     smt.forEach(item => {
         listHTML += `
-        <div class="sidebar__messages">
+        
             <div class="sidebar__message">
                 <img class="sidebar__message__img" src=" ${item.isMyMessage ? "img/wa.png" : "img/sb.jpg" } ">
                 <div class="sidebar__message__body">
@@ -94,7 +94,7 @@ const renderSidebar = smt => {
                     </div>
                 </div>
             </div>   
-        </div>
+        
         `;
     });
     side.innerHTML = listHTML;
