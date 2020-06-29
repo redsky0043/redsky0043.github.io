@@ -135,4 +135,5 @@ input:checked ~ .for__checkbox{
     position: absolute;
     top: 45px;  
     font-size: 10px;
+    color: #000;
 }
