@@ -9,70 +9,91 @@
 <body>
     
     <div class="calc">
-        <div class="calc__screen">
-            3+2
+        <div class="head">
+            <div class="head__title">
+                Calculator
+            </div>
+            <input type="checkbox" id="check">
+            <label class="modal__btn" id="btn" for="check">
+                &#8634;
+            </label>
         </div>
+        <input class="calc__screen" type="text" id="" readonly>
         <div class="calc__body">
             <div class="calc__row">
-                <div class="calc__row__item">
-                    x
-                </div>
-                <div class="calc__row__item">
-                    /
-                </div>
-                <div class="calc__row__item">
-                    +
-                </div>
-                <div class="calc__row__item">
-                    -
-                </div>
+                <button class="calc__row__item" value="%">
+                    %
+                </button>
+                <button class="calc__row__item" value="clear">
+                    CE
+                </button>
+                <button class="calc__row__item" value="clear">
+                    C
+                </button>
+                <button class="calc__row__item" value="&#247;">
+                    &#247;
+                </button>
             </div>
             <div class="calc__row">
-                <div class="calc__row__item">
-                    x
-                </div>
-                <div class="calc__row__item">
-                    /
-                </div>
-                <div class="calc__row__item">
-                    +
-                </div>
-                <div class="calc__row__item">
-                    -
-                </div>
+                <button class="calc__row__item num" value="7">
+                    7
+                </button>
+                <button class="calc__row__item num" value="8">
+                    8
+                </button>
+                <button class="calc__row__item num" value="9">
+                    9
+                </button>
+                <button class="calc__row__item" value="&#215;">
+                    &#215;
+                </button>
             </div>
             <div class="calc__row">
-                <div class="calc__row__item">
-                    x
-                </div>
-                <div class="calc__row__item">
-                    /
-                </div>
-                <div class="calc__row__item">
-                    +
-                </div>
-                <div class="calc__row__item">
+                <button class="calc__row__item num" value="4">
+                    4
+                </button>
+                <button class="calc__row__item num" value="5">
+                    5
+                </button>
+                <button class="calc__row__item num" value="6">
+                    6
+                </button>
+                <button class="calc__row__item" value="-">
                     -
-                </div>
+                </button>
             </div>
             <div class="calc__row">
-                <div class="calc__row__item">
-                    x
-                </div>
-                <div class="calc__row__item">
-                    /
-                </div>
-                <div class="calc__row__item">
+                <button class="calc__row__item num" value="1">
+                    1
+                </button>
+                <button class="calc__row__item num" value="2">
+                    2
+                </button>
+                <button class="calc__row__item num" value="3">
+                    3
+                </button>
+                <button class="calc__row__item" value="+">
                     +
-                </div>
-                <div class="calc__row__item">
-                    -
-                </div>
+                </button>
+            </div>
+            <div class="calc__row">
+                <button class="calc__row__item num" value="+/-">
+                    +/-
+                </button>
+                <button class="calc__row__item num" value="0">
+                    0
+                </button>
+                <button class="calc__row__item num" value=",">
+                    ,
+                </button>
+                <button class="calc__row__item equally" value="=">
+                    =
+                </button>
             </div>
         </div>
     </div>
 
-
-    <script src="js/Task1.js"></script>
+    <script src="js/calc.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

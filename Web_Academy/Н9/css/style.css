@@ -5,45 +5,84 @@
 
 body{
     background-color: #7a7974;
+    user-select: none;
+}
+
+#check{
+    display: none;
 }
 
 .calc{
     width: 350px;
-    height: 500px;
-    padding: 10px;
-    margin: 30px auto;
+    padding: 7px;
+    /* height: 480px; */
+    margin: 50px auto;
     background-color: #202020;
+}
+
+.head{
+    display: flex;
+    margin: 0 5px;
+    font-size: 16px;
+    cursor: default;
+    align-items: center;
+    color: rgb(122, 120, 120);
+    justify-content: space-between;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.modal__btn{
+    font-size: 26px;
+    transform: rotate(-90deg);
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.modal__btn:hover{
+    color: #b1b0a9;
+}
+
+.modal__btn:active{
+    color: #666562;
+    transform: rotate(-105deg);
 }
 
 .calc__body{
     display: flex;
+    height: 350px;
     flex-direction: column;
 }
 
 .calc__screen{
+    width: 100%;
+    border: none;
+    height: 73px;
     color: #fff;
+    margin: 30px 0;
     text-align: end;
     font-size: 50px;
-    margin: 20px 0;
+    background-color: #202020;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .calc__row{
     height: 100%;
     display: flex;
-    margin-top: 30px;
-    justify-content: space-between;
 }
 
 .calc__row__item{
     width: 100%;
-    color: #fff;
+    height: 97%;
+    border: none;
     display: flex;
+    color: #fff;
     cursor: pointer;
-    margin-right: 5px;
+    font-size: 20px;
+    margin-right: 2px;
     align-items: center;
     justify-content: center;
-    background-color: #141414;
+    background-color: #131313;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .calc__row__item:last-child{
@@ -52,4 +91,21 @@ body{
 
 .calc__row__item:hover{
     background-color: #7a7974;
+}
+
+.calc__row__item:active{
+    background-color: #666562;
+    transition: all .2s ease;
+}
+
+.num{
+    background-color: #070707;
+}
+
+.equally{
+    background-color: #14446A;
+}
+
+.equally:hover{
+    background-color: #0874C9;
 }
