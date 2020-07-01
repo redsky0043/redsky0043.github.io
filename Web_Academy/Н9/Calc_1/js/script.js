@@ -10,15 +10,15 @@ document.querySelectorAll("button").forEach(btn => {
                     break;
 
                 case "=":
-                    input.value = calc(input.value);
+                    input.value = eval(input.value);
                     break;
-                
+
+                case "!":
+                    input.value = factorial(input.value)
+                    break;
+                 
                 case "del":
-                    input.value =  input.value.replace(/.$/, "") ;
-                    break;
- 
-                case "%":
-                    input.value = calc(input.value);
+                    input.value = input.value.replace(/.$/, "") ;
                     break;
 
                 default:
