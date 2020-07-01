@@ -16,6 +16,10 @@ document.querySelectorAll("button").forEach(btn => {
                 case "!":
                     input.value = factorial(input.value)
                     break;
+                
+                case "%":
+                    input.value = pers(input.value);
+                    break;
                  
                 case "del":
                     input.value = input.value.replace(/.$/, "") ;

@@ -18,11 +18,12 @@ document.querySelectorAll("button").forEach(btn => {
                     break;
  
                 case "%":
-                    input.value = calc(input.value);
+                    // input.value = calc(input.value);
+                    console.log(input.value);
                     break;
 
                 default:
-                    input.value += btn.value;
+                    input.value = btn.value;
                     break;
             }
     })
