@@ -14,7 +14,7 @@
     background-color: #131313;
     transform: translate(-50%);
     z-index: 3;
-    
+    overflow: auto;
 }
 
 input:checked ~ .modal{
@@ -24,7 +24,6 @@ input:checked ~ .modal{
 .modal__row{
     display: grid;
     margin-top: 10px;
-    /* background-color: blue; */
     text-align: center;
     grid-template-columns: 3fr 1fr 3fr;
 }
@@ -32,13 +31,11 @@ input:checked ~ .modal{
 .modal__row__operation{
     width: 120px;
     text-align: center;
-    /* background-color: coral; */
 }
 
 .modal__row__sym{
     margin-right: 10px;
     font-weight: bold;
-    /* background-color: brown; */
 }
 
 .modal__alert{
