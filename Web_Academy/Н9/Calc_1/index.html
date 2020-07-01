@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/modal.css">
     <link rel="stylesheet" href="css/style.css">
     <title>Calculator</title>
 </head>
@@ -11,12 +12,20 @@
     <div class="calc">
         <div class="head">
             <div class="head__title">
-                Calculator
+                Calculator   &#160;&#160;&#160; ----не финальный вариант &#x1f605;----
             </div>
             <input type="checkbox" id="check">
             <label class="modal__btn" id="btn" for="check">
-                &#8634;
+                &#8634
             </label>
+            <div class="modal">
+                <!-- <label class="modal__btn" id="btn" for="check">
+                    &#8634
+                </label> -->
+                <div class="modal__num" id="list">
+
+                </div>
+            </div>
         </div>
             <input class="calc__screen" type="text" id="input" readonly>
             <div class="container">
@@ -89,7 +98,7 @@
             </div>
     </div>
 
-    
+    <script src="js/history.js"></script>
     <script src="js/fac.js"></script>
     <script src="js/pers.js"></script>
     <script src="js/script.js"></script>

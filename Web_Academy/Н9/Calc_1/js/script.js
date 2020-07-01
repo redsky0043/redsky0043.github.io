@@ -10,11 +10,19 @@ document.querySelectorAll("button").forEach(btn => {
                     break;
 
                 case "=":
+                    let oper = input.value;
                     input.value = eval(input.value);
+                    let res = input.value;
+                    arr.push({operation: oper, result: res});
+                    renderList(arr);
                     break;
 
                 case "!":
+                    let oper1 = input.value;
                     input.value = factorial(input.value)
+                    let res1 = input.value;
+                    arr.push({operation: oper1, result: res1});
+                    renderList(arr);
                     break;
                 
                 case "%":
