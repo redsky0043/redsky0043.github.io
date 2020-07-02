@@ -1,7 +1,5 @@
 
-let arr = [
-    
-];
+let arr = [];
 
 const renderList = smt => {
     if ( smt.length == 0 ) {
