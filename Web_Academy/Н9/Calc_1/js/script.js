@@ -37,8 +37,8 @@ document.querySelectorAll("button").forEach(btn => {
                     input.value += btn.value;
                     break;
             }
-        if (input.value.length > 5) {
-            alert(input.value.toFixed(3))
-        }
+        // if (input.value.length > 5) {
+        //     input.value = input.value.substring(0, 9);
+        // }
     })
 });
