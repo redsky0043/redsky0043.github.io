@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    
+    
+    <div class="notification">
+        <div class="back"></div>
+        <div class="message">
+            notification
+        </div>
+        <div class="close">
+            &times;
+        </div>
+    </div>
+
+    <button class="btn">ON/OFF</button>
+
+    <script>
+
+    // const notify = (message, time) => {
+
+    // };
+
+
+
+    let btn = document.querySelector("button");
+    let notif = document.querySelector(".close");
+    
+    turnOn = (elem) => {
+        let mesage = document.querySelector(".notification")
+        elem.addEventListener("click", () => {
+            mesage.style.display = "inherit";
+        })
+    }
+
+    turnOff = (elem) => {
+        let mesage = document.querySelector(".notification")
+        elem.addEventListener("click", () => {
+            mesage.style.display = "none";
+        })
+    }
+
+    turnOn(btn);
+    turnOff(notif);
+
+        
+
+    </script>
+</body>
+</html>
