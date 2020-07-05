@@ -74,37 +74,37 @@
     //-------------3------------------
 
      // основная функция
-    notify = (time, text) => {
-        let btn = document.querySelector("button");
-        let close = document.querySelector(".close");
-        let window = document.querySelector(".notification");
-        let mes = document.querySelector(".message");
-        let listHTML = "";
-    // открытие окна по клику и закрытие через время
-        btn.addEventListener("click", () => {
-            window.style.display = "inherit";
-            setTimeout(function(){
-                window.style.display = "none"; 
-            }, time);
-        });
+    // notify = (time, text) => {
+    //     let btn = document.querySelector("button");
+    //     let close = document.querySelector(".close");
+    //     let window = document.querySelector(".notification");
+    //     let mes = document.querySelector(".message");
+    //     let listHTML = "";
+    //     // открытие окна по клику и закрытие через время
+    //     btn.addEventListener("click", () => {
+    //         window.style.display = "inherit";
+    //         setTimeout(function(){
+    //             window.style.display = "none"; 
+    //         }, time);
+    //     });
 
-        listHTML += `
-            <div class="text">
-                ${text}
-            </div>
-        `;
-    // функция закрытия по клику на крестик       
-        turnOffNotification = () => {
-            close.addEventListener("click", () => {
-                window.style.display = "none";
-            });
-        };
+    //     listHTML += `
+    //         <div class="text">
+    //             ${text}
+    //         </div>
+    //     `;
+    //     // функция закрытия по клику на крестик       
+    //     turnOffNotification = () => {
+    //         close.addEventListener("click", () => {
+    //             window.style.display = "none";
+    //         });
+    //     };
 
-        turnOffNotification();
-        mes.innerHTML = listHTML;
-    };
+    //     turnOffNotification();
+    //     mes.innerHTML = listHTML;
+    // };
 
-    notify(6000, 'How are you?');
+    // notify(6000, 'How are you?');
 
 
     //-------------3------------------
@@ -116,11 +116,35 @@
 
     //-------------4------------------
 
+    // let promise = new Promise(function(resolve, reject) {
+    //     setTimeout(()=> reject(new Error('Whoops!')),1000);
+    // }); 
 
+    function doSomething() {
+    return new Promise((resolve, reject) => {
+        console.log("Готово.");
+        // Успех в половине случаев.
+        if (Math.random() > .5) {
+        resolve("Успех")
+        } else {
+        reject("Ошибка")
+        }
+    })
+    }
 
+    function successCallback(result) {
+    console.log("Успешно завершено с результатом " + result);
+    }
 
+    function failureCallback(error) {
+    console.log("Завершено с ошибкой " + error);
+}
 
-    
+    const promise = doSomething(); 
+    promise.then(successCallback, failureCallback);
+
+    // doSomething().then(successCallback, failureCallback);
+
     //-------------4------------------
     </script>
 </body>
