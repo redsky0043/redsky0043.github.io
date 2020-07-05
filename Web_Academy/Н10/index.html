@@ -21,7 +21,10 @@
     <button class="btn">Turn ON</button>
 
     <script>
-    //-------------1------------------   
+
+
+
+    //-------------1a------------------   
      
     // printNumbers = (from, to) => {
 
@@ -37,7 +40,7 @@
     // }
     // printNumbers (3, 9);
 
-    //-------------1------------------ 
+    //-------------1a------------------ 
 
 
 
@@ -46,7 +49,7 @@
 
 
 
-    //-------------2------------------ 
+    //-------------1b------------------ 
 
     // printNumbers = (from, to, time) => {
 
@@ -62,7 +65,7 @@
     // printNumbers(1, 20, 100);
   
 
-    //-------------2------------------ 
+    //-------------1b------------------ 
 
 
 
@@ -71,7 +74,7 @@
 
 
 
-    //-------------3------------------
+    //-------------1с------------------
 
      // основная функция
     // notify = (time, text) => {
@@ -107,45 +110,22 @@
     // notify(6000, 'How are you?');
 
 
-    //-------------3------------------
+    //-------------1с------------------
 
 
 
 
 
 
-    //-------------4------------------
+    //-------------2------------------
 
-    // let promise = new Promise(function(resolve, reject) {
-    //     setTimeout(()=> reject(new Error('Whoops!')),1000);
-    // }); 
+    // function delay(ms) {
+    //     return new Promise(resolve => setTimeout(resolve, ms));
+    // }
 
-    function doSomething() {
-    return new Promise((resolve, reject) => {
-        console.log("Готово.");
-        // Успех в половине случаев.
-        if (Math.random() > .5) {
-        resolve("Успех")
-        } else {
-        reject("Ошибка")
-        }
-    })
-    }
+    // delay(3000).then(() => alert('выполнилось через 3 секунды'));
 
-    function successCallback(result) {
-    console.log("Успешно завершено с результатом " + result);
-    }
-
-    function failureCallback(error) {
-    console.log("Завершено с ошибкой " + error);
-}
-
-    const promise = doSomething(); 
-    promise.then(successCallback, failureCallback);
-
-    // doSomething().then(successCallback, failureCallback);
-
-    //-------------4------------------
+    //-------------2------------------
     </script>
 </body>
 </html>
