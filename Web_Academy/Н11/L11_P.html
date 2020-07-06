@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+  <input type="text">
+  <button>click</button>
+  <div></div>
+  <ul></ul>
+  
+    
+</body>
+<script>
+// https://rapidapi.com/Gramzivi/api/covid-19-data?endpoint=apiendpoint_2d3ab5f8-4429-4893-bb87-609fc5c93835
+
+// XMLHttpRequest
+
+// var data = null;
+
+// var xhr = new XMLHttpRequest();
+
+// xhr.open("GET", "https://covid-19-data.p.rapidapi.com/report/country/name?date-format=YYYY-MM-DD&format=json&date=2020-06-01&name=Ukraine");
+// xhr.setRequestHeader("x-rapidapi-host", "covid-19-data.p.rapidapi.com");
+// xhr.setRequestHeader("x-rapidapi-key", "0bb85723d0mshe08272d6bf670e9p174879jsnc26e56c35b7e");
+
+// xhr.onload = (res) => { renderList(JSON.parse(xhr.response)) }
+// xhr.send(data);
+
+function renderList(data) {
+  console.log(data);
+  document.body.innerHTML = data[0].country;
+}
+
+// --------------------------------------------
+
+// fetch 
+
+const renderCountyCovidInfo = ({ province, date, confirmed, recovered, deaths, active }) => {
+  const container = document.querySelector('div');
+  container.innerHTML = `
+    <div>province - ${province}</div>
+    <div>date - ${date}</div>
+    <div>confirmed - ${confirmed}</div>
+    <div>recovered - ${recovered}</div>
+    <div>deaths - ${deaths}</div>
+    <div>active - ${active}</div>
+  `
+}
+
+const getAllCountries = () => (
+  fetch("https://covid-19-data.p.rapidapi.com/help/countries?format=json", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "covid-19-data.p.rapidapi.com",
+		"x-rapidapi-key": "0bb85723d0mshe08272d6bf670e9p174879jsnc26e56c35b7e"
+	}
+  })
+  .then(response => (response.json()))
+  .then((res) => {
+      const list = document.querySelector('ul');
+      list.innerHTML = res.reduce((acc, {name}) => {
+        return `${acc}<li>${name}</li>`
+      }, '');
+      list.addEventListener('click', (e) => {
+        if (e.target.innerHTML) {
+          getCovidByCountryName(e.target.innerHTML).then((response) => {
+          console.log('response', response);
+          if (response.message) {
+            document.querySelector('input').value = response.message;
+          } else {
+            let data = response[0];
+            renderCountyCovidInfo({ ...data.provinces[0], date: data.date });
+          }
+        })
+        }
+      })
+  })
+  .catch(err => {
+    console.log(err);
+  })
+)
+getAllCountries()
+
+const getCovidByCountryName = (country) => (
+  fetch(`https://covid-19-data.p.rapidapi.com/report/country/name?date-format=YYYY-MM-DD&format=json&date=2020-06-01&name=${country}`, {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "covid-19-data.p.rapidapi.com",
+		"x-rapidapi-key": "0bb85723d0mshe08272d6bf670e9p174879jsnc26e56c35b7e"
+	}
+})
+.then(response => (response.json()))
+.then((res) => (res))
+.catch(err => {
+	console.log(err);
+})
+);
+
+// 1
+document.querySelector('button').addEventListener('click', () => {
+  const value = document.querySelector('input').value;
+  if (value) {
+    getCovidByCountryName(value).then((response) => {
+      console.log('response', response);
+      if (response.message) {
+        document.querySelector('input').value = response.message;
+      } else {
+        let data = response[0];
+        renderCountyCovidInfo({ ...data.provinces[0], date: data.date });
+      }
+    })
+  }
+})
+
+
+// [{"country":"Ukraine","provinces":[{"province":"Ukraine","confirmed":24562,"recovered":10053,"deaths":724,"active":13785}],"latitude":48.379433,"longitude":31.16558,"date":"2020-06-01"}]
+
+
+// fetch('/article/fetch/post/user', {
+//   method: 'POST',
+//   headers: {
+//     'Content-Type': 'application/json'
+//   },
+//   body: JSON.stringify(user)
+// })
+// .then(() => {})
+// .catch(() => {});
+</script>
+</html>

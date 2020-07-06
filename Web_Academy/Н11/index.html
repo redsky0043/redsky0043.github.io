@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+</head>
+<body>
+    
+   
+
+    <script>
+
+// renderList ------------------------------------------------
+
+    function renderList(data) {
+        console.log(data);
+        document.body.innerHTML = data.data[0].city_name;
+        // document.body.innerHTML = data.data[0].app_temp;
+        // document.body.innerHTML = data.data[0].clouds;
+        // document.body.innerHTML = data.data[0].datetime;
+    }
+
+// fetch ------------------------------------------------
+    
+    fetch("https://weatherbit-v1-mashape.p.rapidapi.com/current?lang=en&lon=-0.1257400&lat=51.5085300", {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "weatherbit-v1-mashape.p.rapidapi.com",
+            "x-rapidapi-key": "3ca14f9f7cmsh72394d559c4cd6dp1e5dddjsn1af633eec6e3"
+        }
+    })
+    .then(response => ( response.json()))
+    .then((res) => { 
+        console.log('result', res.data[0].city_name);
+        renderList(res);
+    })
+    .catch(err => {
+        console.log(err);
+    });     
+
+    </script>
+    <script src="js/script.js"></script>
+</body>
+</html>
