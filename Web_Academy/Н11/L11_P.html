@@ -39,82 +39,82 @@ function renderList(data) {
 
 // fetch 
 
-const renderCountyCovidInfo = ({ province, date, confirmed, recovered, deaths, active }) => {
-  const container = document.querySelector('div');
-  container.innerHTML = `
-    <div>province - ${province}</div>
-    <div>date - ${date}</div>
-    <div>confirmed - ${confirmed}</div>
-    <div>recovered - ${recovered}</div>
-    <div>deaths - ${deaths}</div>
-    <div>active - ${active}</div>
-  `
-}
+// const renderCountyCovidInfo = ({ province, date, confirmed, recovered, deaths, active }) => {
+//   const container = document.querySelector('div');
+//   container.innerHTML = `
+//     <div>province - ${province}</div>
+//     <div>date - ${date}</div>
+//     <div>confirmed - ${confirmed}</div>
+//     <div>recovered - ${recovered}</div>
+//     <div>deaths - ${deaths}</div>
+//     <div>active - ${active}</div>
+//   `
+// }
 
-const getAllCountries = () => (
-  fetch("https://covid-19-data.p.rapidapi.com/help/countries?format=json", {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-host": "covid-19-data.p.rapidapi.com",
-		"x-rapidapi-key": "0bb85723d0mshe08272d6bf670e9p174879jsnc26e56c35b7e"
-	}
-  })
-  .then(response => (response.json()))
-  .then((res) => {
-      const list = document.querySelector('ul');
-      list.innerHTML = res.reduce((acc, {name}) => {
-        return `${acc}<li>${name}</li>`
-      }, '');
-      list.addEventListener('click', (e) => {
-        if (e.target.innerHTML) {
-          getCovidByCountryName(e.target.innerHTML).then((response) => {
-          console.log('response', response);
-          if (response.message) {
-            document.querySelector('input').value = response.message;
-          } else {
-            let data = response[0];
-            renderCountyCovidInfo({ ...data.provinces[0], date: data.date });
-          }
-        })
-        }
-      })
-  })
-  .catch(err => {
-    console.log(err);
-  })
-)
-getAllCountries()
+// const getAllCountries = () => (
+//   fetch("https://covid-19-data.p.rapidapi.com/help/countries?format=json", {
+// 	"method": "GET",
+// 	"headers": {
+// 		"x-rapidapi-host": "covid-19-data.p.rapidapi.com",
+// 		"x-rapidapi-key": "0bb85723d0mshe08272d6bf670e9p174879jsnc26e56c35b7e"
+// 	}
+//   })
+//   .then(response => (response.json()))
+//   .then((res) => {
+//       const list = document.querySelector('ul');
+//       list.innerHTML = res.reduce((acc, {name}) => {
+//         return `${acc}<li>${name}</li>`
+//       }, '');
+//       list.addEventListener('click', (e) => {
+//         if (e.target.innerHTML) {
+//           getCovidByCountryName(e.target.innerHTML).then((response) => {
+//           console.log('response', response);
+//           if (response.message) {
+//             document.querySelector('input').value = response.message;
+//           } else {
+//             let data = response[0];
+//             renderCountyCovidInfo({ ...data.provinces[0], date: data.date });
+//           }
+//         })
+//         }
+//       })
+//   })
+//   .catch(err => {
+//     console.log(err);
+//   })
+// )
+// getAllCountries()
 
-const getCovidByCountryName = (country) => (
-  fetch(`https://covid-19-data.p.rapidapi.com/report/country/name?date-format=YYYY-MM-DD&format=json&date=2020-06-01&name=${country}`, {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-host": "covid-19-data.p.rapidapi.com",
-		"x-rapidapi-key": "0bb85723d0mshe08272d6bf670e9p174879jsnc26e56c35b7e"
-	}
-})
-.then(response => (response.json()))
-.then((res) => (res))
-.catch(err => {
-	console.log(err);
-})
-);
+// const getCovidByCountryName = (country) => (
+//   fetch(`https://covid-19-data.p.rapidapi.com/report/country/name?date-format=YYYY-MM-DD&format=json&date=2020-06-01&name=${country}`, {
+// 	"method": "GET",
+// 	"headers": {
+// 		"x-rapidapi-host": "covid-19-data.p.rapidapi.com",
+// 		"x-rapidapi-key": "0bb85723d0mshe08272d6bf670e9p174879jsnc26e56c35b7e"
+// 	}
+// })
+// .then(response => (response.json()))
+// .then((res) => (res))
+// .catch(err => {
+// 	console.log(err);
+// })
+// );
 
 // 1
-document.querySelector('button').addEventListener('click', () => {
-  const value = document.querySelector('input').value;
-  if (value) {
-    getCovidByCountryName(value).then((response) => {
-      console.log('response', response);
-      if (response.message) {
-        document.querySelector('input').value = response.message;
-      } else {
-        let data = response[0];
-        renderCountyCovidInfo({ ...data.provinces[0], date: data.date });
-      }
-    })
-  }
-})
+// document.querySelector('button').addEventListener('click', () => {
+//   const value = document.querySelector('input').value;
+//   if (value) {
+//     getCovidByCountryName(value).then((response) => {
+//       console.log('response', response);
+//       if (response.message) {
+//         document.querySelector('input').value = response.message;
+//       } else {
+//         let data = response[0];
+//         renderCountyCovidInfo({ ...data.provinces[0], date: data.date });
+//       }
+//     })
+//   }
+// })
 
 
 // [{"country":"Ukraine","provinces":[{"province":"Ukraine","confirmed":24562,"recovered":10053,"deaths":724,"active":13785}],"latitude":48.379433,"longitude":31.16558,"date":"2020-06-01"}]
