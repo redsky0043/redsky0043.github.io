@@ -9,7 +9,7 @@
 <body>
     <div class="weather">
         <div class="weather__field">
-            <input class="weather__input" type="text">
+            <input class="weather__input" type="text" placeholder="London">
             <button class="weather__btn">Get weather</button>
             <div class="data"></div> 
         </div>
@@ -20,7 +20,7 @@
 const getWeather = (city) => (
     fetch(`https://community-open-weather-map.p.rapidapi.com/find?type=link%252C%20accurate&units=metric&q=${city}`, {
 	"method": "GET",
-	"headers": {
+	"headers": { 
 		"x-rapidapi-host": "community-open-weather-map.p.rapidapi.com",
 		"x-rapidapi-key": "3ca14f9f7cmsh72394d559c4cd6dp1e5dddjsn1af633eec6e3"
 	}
@@ -46,10 +46,8 @@ const renderCity = (info) => {
     
 document.querySelector('button').addEventListener('click', () => {
     const value = document.querySelector('input').value;
-    // console.log();
     if (value) {
         getWeather(value).then((response) => {
-            // console.log('response', response);
             renderCity(response);
         })
     }
