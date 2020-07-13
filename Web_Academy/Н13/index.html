@@ -53,23 +53,27 @@
 
 //--------------2------------------------
 
-        // class Animal {
-        //     constructor(name) {
-        //         this.name = name; 
-        //     }
-        // }
+        class Animal {
+            constructor(name) {
+                this.name = name; 
+            }
+        }
 
-        // class Rabbit extends Animal {
-        //     constructor(name) {
-        // // если у потомка есть свой конструктор то надо вызывать super() перед this
-        //         super ();
-        //         this.name = name;
-        //         this.created = Date.now();
-        //     }
-        // }
+        class Rabbit extends Animal {
+            constructor(name) {
+        // если у потомка есть свой конструктор то надо вызывать super() перед this
+                super (name);
+                // но если использовать super и без параметра, то тоже все работает.
+                // не понятно по какой логике 
+                // super ();
+                this.name = name;
+                this.created = Date.now();
+            }
+        }
 
-        // let rabbit = new Rabbit('White rabbit');
-        // console.log(rabbit.name);
+        let rabbit = new Rabbit('White rabbit');
+        console.log(rabbit.name);
+        console.log(rabbit.created);
 
 //--------------2------------------------
 
