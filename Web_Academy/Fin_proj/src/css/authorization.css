@@ -30,7 +30,7 @@
 }
 
 .authorization{
-    margin-top: 60px;
+    margin-top: 25px;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -74,7 +74,7 @@
     border: none;
     outline: none;
     font-size: 14px;
-    margin-top: 50px;
+    margin-top: 25px;
     color: #1B1D28;
     font-weight: bold;
     line-height: 26px;
