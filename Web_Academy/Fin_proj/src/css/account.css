@@ -1,0 +1,131 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+}
+
+.container{
+    margin: 40px 30px 0 30px;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+}
+
+.header__title{
+    /* font-family: Rubik; */
+    font-style: normal;
+    font-weight: bold;
+    width: 70%;
+    text-align: center;
+    font-size: 18px;
+    line-height: 21px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #1B1D28;
+}
+
+.header__carts{
+    width: 40px;
+    height: 40px;
+    background: url("../img/user.png") center no-repeat;
+    border: none;
+    background-color: #fff;
+}
+
+.main__card{
+    background: #1B1D28;
+    border-radius: 35px;
+    width: 90%;
+    height: 200px;
+    margin-top: 40px;
+    position: relative;
+    right: 15px;
+    color: #fff;
+}
+
+.main__card__top{
+    padding-top: 60px;
+    margin-left: 35px;
+}
+
+.main__card__balance{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 33px;
+    letter-spacing: 0.2em;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+    color: #FFFFFF;
+}
+
+.main__card__text{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 26px;
+    letter-spacing: 0.08em;
+    text-transform: capitalize;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.main__card__number{
+    width: 90%;
+    margin-top: 30px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 26px;
+    text-align: center;
+    letter-spacing: 0.2em;
+    text-transform: capitalize;
+    color: rgba(255, 255, 255, 0.6);
+    display: flex;
+    justify-content: space-between;
+}
+
+.title{
+    font-family: Rubik;
+    margin: 50px 0 40px 0;
+    text-align: center;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
+    letter-spacing: 0.08em;
+    text-transform: capitalize;
+    color: #1B1D28;   
+}
+
+.data{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    color: #1B1D28;
+    text-transform: capitalize;
+    margin-bottom: 18px;
+}
+
+.data__row{
+    display: flex;
+}
+
+.data__row__left{
+    width: 50%;
+}
+
+.data__row__right{
+    width: 50%;
+    text-align: right;
+}
+
+.data__row__date{
+    margin-top: 3px;
+    color: #E1E0EA;
+    font-size: 11px;
+    line-height: 15px;
+    text-transform: capitalize;
+}

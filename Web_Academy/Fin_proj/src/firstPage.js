@@ -1,7 +1,9 @@
 import React from 'react';
-import './App.css';
+import { BrowserRouter as Router, Route, Link} from "react-router-dom";
+import './css/firstPage.css';
+import GetStarter_button from './getStarter_button.js';
 
-const App = () => (
+const FirstPage = () => (
   <div className="firstPage">
     <div className="container">
       <div className="wrapper">
@@ -11,12 +13,17 @@ const App = () => (
         <p className="firstPage__about">
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe provident debitis nisi repudiandae quis nobis consequatur eum, reprehenderit quisquam enim?
         </p>
-        <button className="firstPage__btn">
-          Get Started
-        </button>
+
+        {/* <Link to='/'>Test_Home</Link> */}
+        <Link to='/authorization'><GetStarter_button /></Link>
       </div>
     </div>
   </div>
-)
+);
 
-export default App;
+export default FirstPage;
+
+
+
+
+

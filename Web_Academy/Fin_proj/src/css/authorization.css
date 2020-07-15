@@ -3,9 +3,9 @@
     padding: 0;
 }
 
-.firstPage {
+.secondPage {
     height: 50vh;
-    background: url(./img/leaf.png) no-repeat;
+    background: url(../img/leaf.png) no-repeat;
 }
 
 .container{
@@ -18,36 +18,63 @@
     flex-direction: column;
 }
 
-.firstPage__header{
+.secondPage__header{
     /* font-family: Rubik; */
     font-size: 22px;
     color: #1B1D28;
-    margin-top: 435px;
+    margin-top: 400px;
     font-weight: bold;
     line-height: 26px;
     letter-spacing: 0.7em;
     text-transform: uppercase;
 }
 
-.firstPage__about{
-    /* font-family: Rubik; */
-    font-size: 13px;
-    color: #A0A0A0;
-    margin-top: 30px;
-    line-height: 26px;
-    font-style: normal;
-    text-align: center;
-    font-weight: normal;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+.authorization{
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
-.firstPage__btn{
+.authorization__title{
+    /* font-family: Rubik; */
+    right: 110px;
+    position: relative;
+    font-size: 18px;
+    color: #1B1D28;
+    font-weight: bold;
+    line-height: 26px;
+    letter-spacing: 0.08em;
+    text-transform: capitalize;
+}
+
+.authorization__input{
+    /* font-family: Rubik; */
+    width: 275px;
+    border: none;
+    font-size: 14px;
+    margin-top: 25px;
+    font-weight: bold;
+    line-height: 26px;
+    padding: 11px 20px;
+    font-style: normal;
+    border-radius: 25px;
+    background: #1B1D28;
+    letter-spacing: 0.08em;
+    text-transform: capitalize;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.authorization__input:focus{
+    box-shadow: 0px 0px 30px #8C8C94;
+}
+
+.secondPage__btn{
     /* font-family: Rubik; */
     border: none;
     outline: none;
     font-size: 14px;
-    margin-top: 83px;
+    margin-top: 50px;
     color: #1B1D28;
     font-weight: bold;
     line-height: 26px;
@@ -63,6 +90,6 @@
     -webkit-user-select: none;
 }
 
-.firstPage__btn:active{
+.secondPage__btn:active{
     box-shadow: 0px 0px 30px 10px #E1E0EA;
 }
