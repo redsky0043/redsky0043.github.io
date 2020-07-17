@@ -1,0 +1,43 @@
+.page{
+    display: flex;
+    height: 370px;
+    align-items: center;
+}
+
+#slider{
+    width: 768px;
+    height: 256px;
+    border: 5px solid black;
+    margin: 50px auto;
+    overflow: hidden;
+}
+
+#container{
+    width: 1792px;
+    position: relative;
+    left: 0;
+    transition: all ease 0.5s;
+}
+
+#container::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.style{
+    width: 256px;
+    height: 256px;
+    float: left;
+}
+
+.left, .right{
+    width: 128px;
+    height: 128px;
+    opacity: 0.1;
+    cursor: pointer;
+}
+
+.right{
+    rotate: 180deg;
+}

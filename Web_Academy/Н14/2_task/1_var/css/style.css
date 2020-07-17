@@ -1,0 +1,45 @@
+
+.slider{
+    /* border: 1px solid #000; */
+    width: 180px;
+    height: 200px;
+    margin: 50px auto;  
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.right, .left{
+    font-size: 30px;
+    cursor: pointer;
+    color: #bdbdbd;
+}
+
+.left:hover{
+    color: #6e6c6c;
+    transition: all ease .2s;
+}
+
+.right:hover{
+    color: #6e6c6c;
+    transition: all ease .2s;
+}
+
+.container{
+    width: 150px;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.style{
+    width: 150px;
+    height: 200px;
+    position: absolute;
+    opacity: 1;
+    transition: all ease 1s;
+}
+
+.container .hide{
+    opacity: 0;
+}

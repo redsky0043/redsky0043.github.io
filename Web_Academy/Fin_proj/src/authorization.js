@@ -1,11 +1,15 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import './css/authorization.css';
-import GO_button from './go_button.js';
+import GoButton from './go_button.js';
 
 
-const Authorization = () => (
-  <div className="secondPage">
+const Authorization = () => {
+
+  
+
+  return (
+    <div className="secondPage">
     <div className="container">
       <div className="wrapper">
         <h1 className="secondPage__header">
@@ -13,16 +17,17 @@ const Authorization = () => (
         </h1>
         <div className="authorization">
           <h2 className="authorization__title">
-            Login
+            Login 
           </h2>
-          <input className="authorization__input" type="text" placeholder="User Name"/>
-          <input className="authorization__input" type="text" placeholder="Password"/>
+          <input className="authorization__input" type="text" required placeholder="User Name"/>
+          <input className="authorization__input" type="text" required placeholder="Password"/>
         </div>
-        <Link to='/account'><GO_button /></Link>
+        <Link to='/account'><GoButton /></Link>
       </div>
     </div>
   </div>
-);
+  ) 
+};
  
 export default Authorization
 

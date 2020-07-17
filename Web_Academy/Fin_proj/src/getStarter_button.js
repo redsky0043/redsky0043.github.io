@@ -1,14 +1,14 @@
 import React from "react";
 
-class GetStarter_button extends React.Component {
+class GetStarterButton extends React.Component {
     render() {
       return (
-        <button className="secondPage__btn">
+        <button className="firstPage__btn">
           Get Started
         </button>
       );
     }
   } 
 
-export default GetStarter_button;
+export default GetStarterButton;
 

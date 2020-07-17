@@ -1,13 +1,30 @@
 import React from "react";
 
-class GO_button extends React.Component {
-  render() {
-    return (
-      <button className="secondPage__btn">
-        Go
-      </button>
-    );
-  }
+// class GoButton extends React.Component {
+//   render() {
+//     return (
+//       <button className="secondPage__btn">
+//         Go
+//       </button>
+//     );
+//   }
+// }
+
+function GoButton () {
+
+  // let val = document.querySelector('.authorization__input').value;
+
+  // if (val==='') {
+  //   console.log('empty')
+  // } else {
+  //   console.log('done')
+  // }
+
+  return (
+    <button className="secondPage__btn">
+      Go
+    </button>
+  );
 }
 
-export default GO_button;
+export default GoButton;

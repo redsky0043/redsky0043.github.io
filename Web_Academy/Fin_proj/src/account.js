@@ -1,5 +1,6 @@
 import React from 'react';
 import './css/account.css';
+import { Link } from "react-router-dom";
 
 const Account = () => (
     <div className="account">
@@ -11,23 +12,26 @@ const Account = () => (
                 </div>
                 <button className="header__carts" type="button"></button>
             </div>
-            <div className="main__card">
-                <div className="main__card__top">
-                    <div className="main__card__balance">
-                        $19,452.20
+            <Link to='/ballance'>
+                <div className="main__card">
+                    <div className="main__card__top">
+                        <div className="main__card__balance">
+                            $19,452.20
+                        </div>
+                        <div className="main__card__text">
+                            current ballance
+                        </div>
                     </div>
-                    <div className="main__card__text">
-                        current ballance
+                    <div className="main__card__number">
+                        {/* 5454 4141 5687 5412 */}
+                        <div className="part">5454</div>
+                        <div className="part">4141</div>
+                        <div className="part">5687</div>
+                        <div className="part">5412</div>
                     </div>
                 </div>
-                <div className="main__card__number">
-                    {/* 5454 4141 5687 5412 */}
-                    <div className="part">5454</div>
-                    <div className="part">4141</div>
-                    <div className="part">5687</div>
-                    <div className="part">5412</div>
-                </div>
-            </div>
+            </Link>
+                
             <div className="title">
                 send money
             </div>
