@@ -1,6 +1,12 @@
 let up = 0;
 let left = 0;
 let man = document.querySelector('.man');
+let box = document.querySelectorAll('.box'); //
+// console.log(box[1]);
+let data = box.forEach(elem => console.log((elem.getBoundingClientRect()).x))
+console.log(data);
+// console.log('x =', data.x, 'y =', data.y);
+
 
 
 window.onkeydown = function move(){
@@ -25,7 +31,7 @@ window.onkeydown = function move(){
         }
         man.style.top = up + 'px';
     }
-    else if(event.keyCode == 40){
+    else if(event.keyCode == 40){ 
         up = up + 52;
         if (up > 156) {
             up = 0;
