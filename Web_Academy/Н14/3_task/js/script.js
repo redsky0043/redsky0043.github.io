@@ -1,10 +1,9 @@
 let up = 0;
 let left = 0;
 let man = document.querySelector('.man');
-let box = document.querySelectorAll('.box'); //
-// console.log(box[1]);
-let data = box.forEach(elem => console.log((elem.getBoundingClientRect()).x))
-console.log(data);
+let box = document.querySelectorAll('.box'); 
+// let data = box.forEach(elem => (elem.getBoundingClientRect()))
+// console.log(data);
 // console.log('x =', data.x, 'y =', data.y);
 
 

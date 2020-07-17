@@ -6,11 +6,13 @@ const Account = () => (
     <div className="account">
         <div className="container">
             <div className="header">
-                <button className="header__carts"></button>
+                <div className="header__carts none"></div>
                 <div className="header__title">
                     ULIX
                 </div>
-                <button className="header__carts" type="button"></button>
+                <Link to='/user'>
+                    <button className="header__carts" type="button"></button>
+                </Link>
             </div>
             <Link to='/ballance'>
                 <div className="main__card">
