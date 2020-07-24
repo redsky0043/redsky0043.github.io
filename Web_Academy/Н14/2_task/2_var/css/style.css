@@ -38,6 +38,7 @@
     cursor: pointer;
 }
 
+
 .right{
-    rotate: 181deg;
+    transform: rotate(180deg);
 }
