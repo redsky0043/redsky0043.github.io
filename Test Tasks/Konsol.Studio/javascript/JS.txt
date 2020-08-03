@@ -1,3 +1,5 @@
+// script for hiding messages in GMAIL
+
 document.querySelectorAll('tr.zA').forEach((element, index) => {
     const isFirst = index === 0;
     if (isFirst) {
