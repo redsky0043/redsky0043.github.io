@@ -11,8 +11,8 @@
 :root {
     --blue: #2F80ED;
     --white: #fff;
-    --Lato: Lato, sans-serif;
-    --PFDin: PF Din Text Cond Pro;
+    --Lato: 'Lato', sans-serif;
+    --PFDin: 'PF Din Text Cond Pro';
     --HelveticaNeueCyr: 'HelveticaNeueCyr';
 }
 
