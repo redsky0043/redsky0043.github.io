@@ -200,7 +200,8 @@
     letter-spacing: 0.1em;
 }
 
-.info__item__number, .info__item__email {
+.info__item__number, 
+.info__item__email {
     color: var(--white);
     text-decoration: none;
 }
