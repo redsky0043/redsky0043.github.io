@@ -4,8 +4,8 @@
 }
 
 @font-face {
-    font-family: HelveticaNeueCyr;
-    src: url(../fonts/HelveticaNeueCyr-Light.ttf);
+    font-family: 'HelveticaNeueCyr';
+    src: url(/fonts/HelveticaNeueCyr-Light.ttf);
 }
 
 :root {
@@ -13,7 +13,7 @@
     --white: #fff;
     --Lato: Lato, sans-serif;
     --PFDin: PF Din Text Cond Pro;
-    --HelveticaNeueCyr: HelveticaNeueCyr;
+    --HelveticaNeueCyr: 'HelveticaNeueCyr';
 }
 
 .container {
