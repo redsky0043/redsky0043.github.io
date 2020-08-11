@@ -33,6 +33,9 @@
                             контакти
                         </a>
                     </div>
+                    <div class="main__menu">
+                        &#9776;
+                    </div>
                     <button class="btn main__button">
                         записатись на прийом
                     </button>
@@ -59,7 +62,9 @@
         <div class="info__container">
             <div class="info__items">
                 <div class="info__item">
-                    м. Київ, вул. Еленівська, 8
+                    <div class="info__adress">
+                        м. Київ, вул. Еленівська, 8
+                    </div>
                 </div>
                 <hr class="info__v-line--white">
                 <div class="info__item">
@@ -96,7 +101,7 @@
         </div>
         <div class="directions__items">
             <div class="directions__wrapper">
-                <div class="directions__item">
+                <div class="directions__item" data-tab-name="tab-1">
                     <div class="item__img">
                         <img src="/img/brain.png" alt="Brain">
                     </div>
@@ -104,37 +109,37 @@
                         неврологія
                     </p>
                 </div>
-                <span class="triangle">▼</span>
+                <span class="triangle tab-1">▼</span>
             </div>
             <hr class="directions__v-line--blue">
             <div class="directions__wrapper">
-                <div class="directions__item">
+                <div class="directions__item" data-tab-name="tab-2">
                     <div class="item__img">
                         <img src="/img/massage.png" alt="Massage">
                     </div>
                     <p class="item__text">
                         масаж
                     </p>
-                    <span class="triangle is--active">▼</span>
+                    <span class="triangle tab-2 is--active">▼</span>
                 </div>
             </div>
             <hr class="directions__v-line--blue">
             <div class="directions__wrapper">
-                <div class="directions__item">
+                <div class="directions__item" data-tab-name="tab-3">
                     <div class="item__img">
                         <img src="/img/bone.png" alt="Bone">
                     </div>
                     <p class="item__text">
                         ревматологія
                     </p>
-                    <span class="triangle">▼</span>
+                    <span class="triangle tab-3">▼</span>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- toggles section-->
-    <div class="toggles">
+    <div class="toggles tab-1">
         <div class="toggle">
             <div class="toggle__left">
                 <h2 class="toggle__left__title">
@@ -157,12 +162,12 @@
                 </button>
             </div>
             <div class="toggle__right">
-                <img src="./img/head.jpg" alt="Human">
+                <img class="toggle__right__img" src="./img/head.jpg" alt="Human">
             </div>
         </div>
     </div>
 
-    <div class="toggles is--active">
+    <div class="toggles tab-2 is--active">
         <div class="toggle">
             <div class="toggle__left">
                 <h2 class="toggle__left__title">
@@ -185,12 +190,12 @@
                 </button>
             </div>
             <div class="toggle__right">
-                <img src="./img/woman.jpg" alt="Human">
+                <img class="toggle__right__img" src="./img/woman.jpg" alt="Human">
             </div>
         </div>
     </div>
 
-    <div class="toggles">
+    <div class="toggles tab-3">
         <div class="toggle">
             <div class="toggle__left">
                 <h2 class="toggle__left__title">
@@ -213,7 +218,7 @@
                 </button>
             </div>
             <div class="toggle__right">
-                <img src="./img/hand.jpg" alt="Human">
+                <img class="toggle__right__img" src="./img/hand.jpg" alt="Human">
             </div>
         </div>
     </div>

@@ -1,16 +1,36 @@
 let tab = function () {
-    let tabNav = document.querySelectorAll('.directions__item');
-    let tabContent = document.querySelectorAll('.triangle');
+    let tabItem = document.querySelectorAll('.directions__item');
+    let tabTriangle = document.querySelectorAll('.triangle');
+    let tabContent = document.querySelectorAll('.toggles');
+    let tabName;
 
-    tabNav.forEach(item => {
+    tabItem.forEach(item => {
         item.addEventListener('click', selectTabNav)
     });
 
     function selectTabNav() {
-        tabContent.forEach(item => {
+        tabTriangle.forEach(item => {
             item.classList.remove('is--active');
         });
-        
+        tabName = this.getAttribute('data-tab-name');
+        selectTabTriangle(tabName);
+        selectTabContent(tabName);
+    };
+
+    function selectTabTriangle(tabName) {
+        tabTriangle.forEach(item => {
+            item.classList.contains(tabName) ? 
+            item.classList.add('is--active') : 
+            item.classList.remove('is--active');
+        })
+    }
+
+    function selectTabContent(tabName) {
+        tabContent.forEach(item => {
+            item.classList.contains(tabName) ? 
+            item.classList.add('is--active') : 
+            item.classList.remove('is--active');
+        })
     }
 };
 
