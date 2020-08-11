@@ -8,11 +8,16 @@
     src: url(/fonts/HelveticaNeueCyr-Light.ttf);
 }
 
+@font-face {
+    font-family: 'PFDinTextCondPro';
+    src: url(/fonts/PF_Din_Text_Cond_Pro.ttf);
+}
+
 :root {
     --blue: #2F80ED;
     --white: #fff;
     --Lato: 'Lato', sans-serif;
-    --PFDin: 'PF Din Text Cond Pro';
+    --PFDin: 'PFDinTextCondPro';
     --HelveticaNeueCyr: 'HelveticaNeueCyr';
 }
 
