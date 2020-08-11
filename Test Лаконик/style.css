@@ -5,12 +5,12 @@
 
 @font-face {
     font-family: HelveticaNeueCyr;
-    src: url(./fonts/HelveticaNeueCyr-Light.ttf);
+    src: url(../fonts/HelveticaNeueCyr-Light.ttf);
 }
 
 @font-face {
     font-family: Karla;
-    src: url(./fonts/Karla-Regular.ttf);
+    src: url(../fonts/Karla-Regular.ttf);
 }
 
 :root {
@@ -29,7 +29,7 @@
 }
 
 .main {
-    background: url(./img/main.jpg) no-repeat;
+    background: url(../img/main.jpg) no-repeat;
     height: 600px;
     width: 100%;
 }
@@ -388,7 +388,7 @@
     }
 
     .main {
-        background: url(./img/main.jpg) right 0 bottom 0px no-repeat;
+        background: url(../img/main.jpg) right 0 bottom 0px no-repeat;
     }
 }
 
@@ -398,7 +398,7 @@
     }
 
     .main {
-        background: url(./img/main.jpg) right 0 bottom 0px no-repeat;
+        background: url(../img/main.jpg) right 0 bottom 0px no-repeat;
     }
 
     .toggle__left {
@@ -423,7 +423,7 @@
 
 @media (max-width: 760px){
     .main {
-        background: url(./img/main.jpg) right 0 bottom 0px no-repeat;
+        background: url(../img/main.jpg) right 0 bottom 0px no-repeat;
     }
 
     .info__container {
@@ -447,7 +447,7 @@
     }
     
     .main {
-        background: url(./img/main.jpg) right -250px bottom 0px no-repeat;
+        background: url(../img/main.jpg) right -250px bottom 0px no-repeat;
         height: 590px;
     }
 
