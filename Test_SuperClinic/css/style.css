@@ -5,12 +5,12 @@
 
 @font-face {
     font-family: 'HelveticaNeueCyr';
-    src: url(../fonts/HelveticaNeueCyr-Light.ttf);
+    src: url(/fonts/HelveticaNeueCyr-Light.ttf);
 }
 
 @font-face {
     font-family: 'PFDinTextCondPro';
-    src: url(../fonts/PF_Din_Text_Cond_Pro.ttf);
+    src: url(/fonts/PF_Din_Text_Cond_Pro.ttf);
 }
 
 :root {
