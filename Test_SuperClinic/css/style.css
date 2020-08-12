@@ -22,7 +22,7 @@
 }
 
 .container {
-    max-width: 1440px;
+    max-width: 1200px;
     padding: 0 100px;
     height: 100%;
     margin: 0 auto;
@@ -324,7 +324,7 @@
     display: flex;
     margin: 0 auto;
     padding: 0 100px;
-    max-width: 1184px;
+    max-width: 1200px;
     justify-content: space-between;
 }
 
@@ -461,15 +461,6 @@
 
 /* -------------- adaptability -------------- */
 
-@media (max-width: 1440px){
-    .container {
-        padding: 0 75px;
-    }
-
-    .main {
-        background: url(../img/main.jpg) right 0px bottom 0px no-repeat;
-    }
-}
 
 @media (max-width: 1200px){
     .container {
