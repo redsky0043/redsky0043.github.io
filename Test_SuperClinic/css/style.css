@@ -379,8 +379,82 @@
     display: inherit;
 }
 
+/* drop down menu */
 
+.drop-down {
+    position: absolute;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: bisque;
+    z-index: 100;
+    display: none;
+    background: rgba(255, 255, 255);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+}
 
+.drop-down__wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.drop-down__logo {
+    margin: 30px 0 10px 0;
+}
+
+.drop-down__nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.drop-item {
+    margin: 5px;
+    height: 30px;
+    width: 210px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #fff;
+    border-bottom: none;
+}
+
+.drop-item:hover{
+    border-bottom: none;
+    border-left: 1px solid var(--blue);
+    border-right: 1px solid var(--blue);
+}
+
+.drop-down__button{
+    margin-top: 20px;
+    color: var(--blue);
+}
+
+.drop-down__button:hover{
+    color: var(--white);
+    background-color: var(--blue);
+    transition: all .2s ease;
+}
+
+.drop-down__close {
+    margin-top: 5px;
+    height: 35px;
+    width: 50px;
+    cursor: pointer;
+}
+
+.drop-down__line {
+    margin: auto;
+    margin-top: 20px;
+    width: 40px;
+    height: 4px;
+    border: none;
+    background-color: var(--blue);
+    border-radius: 2px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, .6);
+}
 
 
 @media (max-width: 1440px){
@@ -420,11 +494,21 @@
     .toggle__right__img{
         width: 100%;
     }
+
+    .drop-down__nav{
+        flex-direction: row;
+        justify-content: space-between;
+        width: 60%;
+    }
 }
 
 @media (max-width: 760px){
     .main {
         background: url(../img/main.jpg) right 0 bottom 0px no-repeat;
+    }
+    
+    .drop-down__nav{
+        flex-direction: column;
     }
 
     .info__container {
@@ -497,6 +581,11 @@
     .main__logo__img{
         width: 200px;
     }
+
+    .main__button__about{
+        height: 46px;
+    }
+
 
     .main__subtitle, 
     .main__title{
