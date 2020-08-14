@@ -339,19 +339,46 @@ body{
 }
 
 .info__list__item{
+    left: -44px;
     padding: 25px 0;
+    display: flex;
+    justify-content: space-between;
     padding-left: 44px;
     position: relative;
-    left: -44px;
     list-style-type: none;
     background-color: var(--grey);
+}
+
+.list__item__name{
+    font-weight: bold;
+}
+
+.list__item__value{
+    width: 150px;
 }
 
 .item--white{
     background-color: var(--white);
 }
 
+.info__right{
+    margin-top: 80px;
+}
 
+.right__frame__frame{
+    width: 385px;
+    height: 208px;
+    margin-top: 26px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f3f3f3;
+}
+
+.info__right__frame:last-child{
+    margin-top: 30px;
+}
 
 
 
@@ -373,6 +400,7 @@ body{
 .wrapper{
     display: flex;
     margin-left: 254px;
+    margin-bottom: 50px;
 }
 
 .btn{
