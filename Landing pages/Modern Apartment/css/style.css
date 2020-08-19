@@ -62,14 +62,14 @@ nav{
 .intro .intro-text{
     position: absolute;
     font-size: 62px;
-    right: 1050px;
+    right: 760px;
     top: 220px;
 }
 .intro-contacts{
     background-color: #ffcc01;
     max-width: 590px;
     position: absolute;
-    right: 324px;
+    right: 193px;
     top: 535px;
     display: flex;
     justify-content: space-between;
