@@ -481,15 +481,21 @@ hr{
 
 
 
-
-
-
-@media screen and (max-width: 1366px){
+@media (max-width: 1920px) {
     .intro .intro-text{
-    right: 650px;
+        right: 975px;
     }
     .intro-contacts {
-    right: 124px;
+        right: 401px;
+    }
+}
+
+@media (max-width: 1366px) {
+    .intro .intro-text{
+        right: 650px;
+    }
+    .intro-contacts {
+        right: 124px;
     }
 }
 
