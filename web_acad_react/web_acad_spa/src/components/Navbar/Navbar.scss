@@ -1,0 +1,37 @@
+@import '../../styles/variable';
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 15px;
+    font-family: sans-serif;
+}
+
+body,
+h1, 
+h2,
+h3,
+h4,
+p,
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.nav {
+    background-color: #000;
+    height: 60px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    &__content {
+        max-width: $page-content-width;
+    }
+}

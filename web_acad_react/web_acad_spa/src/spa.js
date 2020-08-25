@@ -1,3 +1,3 @@
-import './index.jsx';
+import './index.js';
 import './spa.scss';
 
