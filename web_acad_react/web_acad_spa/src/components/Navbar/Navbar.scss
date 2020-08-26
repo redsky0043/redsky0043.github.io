@@ -1,32 +1,9 @@
 @import '../../styles/variable';
-
-* {
-    box-sizing: border-box;
-}
-
-html {
-    font-size: 15px;
-    font-family: sans-serif;
-}
-
-body,
-h1, 
-h2,
-h3,
-h4,
-p,
-ul,
-ol {
-    margin: 0;
-    padding: 0;
-}
-
-a {
-    text-decoration: none;
-}
+@import '../../styles/base';
 
 .nav {
-    background-color: #000;
+    background-color: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,.08), 0 0 1px rgba(1,0,0,.1);
     height: 60px;
     color: #fff;
     display: flex;
@@ -37,11 +14,13 @@ a {
         width: 100%;
         display: flex;
         justify-content: space-between;
-        padding: $page-padding;
+        padding: 0 $page-padding;
     }
 
     &__search-form{
         width: 30%;
         max-width: 500px;
+        display: flex;
+        align-items: center;
     }
-}
+} 
