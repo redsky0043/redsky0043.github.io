@@ -8,7 +8,9 @@ export class Navbar extends React.Component {
             <nav>
                 <div className="nav">
                     <div className="nav__content">
-                        <SearchForm />
+                        <div className="nav__search-form">
+                            <SearchForm />
+                        </div>
                         {/* <PageMenu /> */}
                     </div>
                 </div>
