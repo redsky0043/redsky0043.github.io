@@ -9,7 +9,7 @@ export class Navbar extends React.Component {
                 <div className="nav">
                     <div className="nav__content">
                         <div className="nav__search-form">
-                            <SearchForm />
+                            <SearchForm  onSearchSucceed={this.props.onSearchSucceed} />
                         </div>
                         {/* <PageMenu /> */}
                     </div>

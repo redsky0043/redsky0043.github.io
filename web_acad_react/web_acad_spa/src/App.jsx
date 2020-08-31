@@ -10,7 +10,8 @@ export class App extends React.Component {
             images: [],
             currentPage: 1,
         };
-        this.nextImages = this.nextImages.bind(this)
+        this.nextImages = this.nextImages.bind(this);
+        this.searchHandler = this.searchHandler.bind(this);   
     }
 
     setImages(images) {
@@ -58,10 +59,15 @@ export class App extends React.Component {
         });
     }
 
+    searchHandler(images) {
+        console.log(images);
+        this.setImages(images);
+    }
+
     render() {
         return (
             <div>
-                <Navbar />
+                <Navbar onSearchSucceed={this.searchHandler} />
                 <div>
                     {this.renderImages()}
                 </div>
