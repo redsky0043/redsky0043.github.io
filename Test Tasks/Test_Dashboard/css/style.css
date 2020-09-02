@@ -85,10 +85,6 @@ body{
     background-position-x: 250px;
 }
 
-.menu-list__text--active{
-    background-color: black;
-}
-
 .menu-list__img{
     height: 16px;
     width: 16px;
