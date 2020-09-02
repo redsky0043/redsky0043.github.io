@@ -15,11 +15,6 @@ menuList.forEach(item => {
             item.classList.remove('menu-list__item--active')
         });
         item.classList.add('menu-list__item--active');
-        
-        // menuText.forEach(item => {
-        //     item.classList.remove('menu-list__text--active')
-        // });
-        // item.classList.add('menu-list__text--active');
     })
 });
 
