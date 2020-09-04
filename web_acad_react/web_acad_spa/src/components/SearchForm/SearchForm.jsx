@@ -1,8 +1,8 @@
 import React from 'react';
-import { Request } from '../../request'; 
+import { withRouter } from 'react-router-dom'; 
 import './SearchForm.scss';
 
-export class SearchForm extends React.Component {
+class SearchForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -15,31 +15,15 @@ export class SearchForm extends React.Component {
 
     submitForm(e) {
         e.preventDefault();
-
-        const request = new Request();
-        request.get(
-            `http://api.unsplash.com/search/photos?page=1&query=${this.state.searchValue}&client_id=SQ5Scnaj8BOEjXsZruj1O4t-xHhHop9xfw7xw03MF0g`,
-            (responseJSON) => {
-                const response = JSON.parse(responseJSON);
-                if (response && response.results) {
-                    this.props.onSearchSucceed(response.results);
-                } else {
-                    console.error('Response is empty', responseJSON);
-                }
-            },
-            (e) => {
-                throw new Error(e);
-            }
-        )
+        this.props.history.push(`/search/${this.state.searchValue}`);
     }
 
     onChange(e) {
         const searchValue = e.currentTarget.value;
-        this.setState({ searchValue })
+        this.setState({ searchValue });
     }
 
     render() {
-
         const className = this.props.className || '';
 
         return (
@@ -55,4 +39,8 @@ export class SearchForm extends React.Component {
             </form>
         )
     }
-} 
+}
+
+const SearchFormWithRouter = withRouter(SearchForm);
+
+export { SearchFormWithRouter as SearchForm };
