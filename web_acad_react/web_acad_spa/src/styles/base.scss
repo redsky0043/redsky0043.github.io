@@ -6,7 +6,7 @@
 
 html {
     font-size: $font-size;
-    font-family: sans-serif;
+    font-family: monospace;
 }
 
 body,
@@ -23,6 +23,7 @@ ol {
 
 a {
     text-decoration: none;
+    color: rgb(114, 114, 114);
 }
 
 input {

@@ -1,31 +1,51 @@
 @import '../../styles/variable';
 
 $form-bg-color: #eee;
+$transition: all .2s ease;
 
 .search-form {
-    display: flex;
+    display: flex; 
     width: 100%;
+    min-width: 250px;
     align-items: stretch;
     background-color: $form-bg-color;
     border: 1px solid $form-bg-color;
     border-radius: 22px;
 
+    &:hover {
+        transition: $transition;
+        border: 1px solid rgb(199, 199, 199);
+    }
+
     &__input {
        flex-grow: 1;
        padding: 0.7rem 1rem;
-       padding-left: 0;
+       padding-left: 15px;
        font-size: 0.9rem;
        background-color: transparent;
+       border-radius: 22px;
        border: none;
+       font-family: monospace;
+    }
+
+    &__input:focus {
+        transition: $transition;
+        background-color: #fff;
     }
 
     &__button {
         font-size: 1rem;
         border: none;
         display: inline-block;
-        width: 30px;
+        width: 40px;
         text-align: center;
-        background: transparent;
+        border-radius: 22px;
         cursor: pointer;
     }
-} 
+
+    &__img{
+        width: 15px;
+        position: relative;
+        top: 2px;
+    }
+}

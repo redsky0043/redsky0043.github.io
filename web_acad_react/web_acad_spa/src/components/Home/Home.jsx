@@ -1,6 +1,8 @@
 import React from 'react';
 
 import { Request } from '../../request';
+import { Grid } from '../Grid';
+import './Home.scss';
 
 export class Home extends React.Component {
     constructor(props) {
@@ -8,9 +10,7 @@ export class Home extends React.Component {
         this.state = {
             images: [],
             currentPage: 1,
-        };
-        this.nextImages = this.nextImages.bind(this);
-        this.searchHandler = this.searchHandler.bind(this);   
+        };   
     }
 
     setImages(images) {
@@ -37,7 +37,7 @@ export class Home extends React.Component {
         )
     }
 
-    nextImages() {
+    nextImages = () => {
         this.setState((state) => {
             const newState = Object.assign(state);
             newState.currentPage++;
@@ -47,31 +47,24 @@ export class Home extends React.Component {
         });
     }
 
-    renderImages() {
-        return this.state.images.map(image => {
-            return (
-                <img
-                    src={`${image.urls.small}`}
-                    key={image.id}
-                    alt={image.id}
-                />
-            )
-        });
-    }
-
-    searchHandler(images) {
+    searchHandler = (images) => {
         console.log(images);
         this.setImages(images);
     }
 
     render() {
         return (
-            <div>
-                <div>
-                    {this.renderImages()}
-                </div>
-                <button onClick={this.nextImages} >
-                    Next
+            <div className='content' >
+                    <Grid images={this.state.images} />
+                <button
+                    className='content__btn' 
+                    onClick={this.nextImages} 
+                >
+                    <img 
+                        className="content__btn__img"
+                        src={require("../../images/arrow.png")} 
+                        alt="arrow" 
+                    />
                 </button>
             </div>
         )

@@ -1,7 +1,15 @@
 import React from 'react';
+
 import { Request } from '../../request';
+import { Grid } from '../Grid';
 
 export class Search extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            images: [],
+        }
+    }
 
     componentDidMount() {
         const request = new Request();
@@ -10,7 +18,7 @@ export class Search extends React.Component {
             (responseJSON) => {
                 const response = JSON.parse(responseJSON);
                 if (response && response.results) {
-                    this.props.onSearchSucceed(response.results);
+                    this.setImages(response.results);
                 } else {
                     console.error('Response is empty', responseJSON);
                 }
@@ -21,11 +29,15 @@ export class Search extends React.Component {
         )
     }
 
+    setImages(images){
+        this.setState({ images });
+    }
+
     render() {
         return (
-            <h1>
-                Search page
-            </h1>
+            <div className="content">
+                <Grid images={this.state.images} />
+            </div>
         )
     }
 } 

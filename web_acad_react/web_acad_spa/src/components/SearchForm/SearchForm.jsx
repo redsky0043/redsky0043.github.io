@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom'; 
+import { withRouter } from 'react-router-dom';
 import './SearchForm.scss';
 
 class SearchForm extends React.Component {
@@ -9,16 +9,14 @@ class SearchForm extends React.Component {
             isFocus: false,
             searchValue: '',
         }
-        this.submitForm = this.submitForm.bind(this);
-        this.onChange = this.onChange.bind(this);
     }
 
-    submitForm(e) {
+    submitForm = (e) => {
         e.preventDefault();
         this.props.history.push(`/search/${this.state.searchValue}`);
     }
 
-    onChange(e) {
+    onChange = (e) => {
         const searchValue = e.currentTarget.value;
         this.setState({ searchValue });
     }
@@ -28,15 +26,21 @@ class SearchForm extends React.Component {
 
         return (
             <form className={className + ' search-form'} onSubmit={this.submitForm} >
-                <button className="search-form__button">S</button>
-                <input 
-                    className='search-form__input' 
-                    type="text" 
+                <button className="search-form__button">
+                    <img
+                        className="search-form__img"
+                        src={require("../../images/search.png")}
+                        alt="search"
+                    />
+                </button>
+                <input
+                    className='search-form__input'
+                    type="text"
                     placeholder='Search...'
-                    onChange={ this.onChange } 
-                    value={ this.state.searchValue } 
+                    onChange={this.onChange}
+                    value={this.state.searchValue}
                 />
-            </form>
+            </form> 
         )
     }
 }

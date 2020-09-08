@@ -1,0 +1,30 @@
+.content {
+    margin: 0 auto;
+    max-width: 1166px;
+    padding: 0 100px;
+    display: flex;
+    flex-direction: column;
+
+    &__btn {
+        margin: 50px auto;
+        border: none;
+        background: none;
+        cursor: pointer;
+        
+        &__img {
+            width: 25px;
+            opacity: .5;
+
+            &:hover {
+                transform: scale(1.2) translateY(10px);
+                transition: all .3s ease;
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .content {
+        padding: 0 30px;
+    }
+}

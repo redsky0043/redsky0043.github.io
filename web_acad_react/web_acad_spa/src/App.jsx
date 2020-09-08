@@ -10,7 +10,7 @@ export class App extends React.Component {
         super();
     }
 
-    searchHandler(value) {
+    searchHandler = (value) => {
         console.log(value);
     }
 

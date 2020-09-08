@@ -1,12 +1,16 @@
 import React from 'react';
+
 import { GridItem } from './GridItem.jsx';
+import './Grid.scss';
 
 export const Grid = ({ images = [] }) => {
     return (
         <div className='grid' >
-            {images.map((image) => {
-                <GridItem images='image' />
-            })}
+            {
+                images.map((image) => (
+                    <GridItem image={image} key={image.id} />
+                ))
+            }
         </div>
     )
 }

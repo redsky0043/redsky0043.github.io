@@ -12,12 +12,12 @@ export class Navbar extends React.Component {
                     <div className="nav__content">
                         <div className="nav__search-form">
                             <SearchForm onSearch={this.props.onSearch} />
-                        </div>
-                        <ul>
-                            <li>
+                        </div> 
+                        <ul className="nav__menu">
+                            <li className="nav__menu-item">
                                 <Link to='/'>Home</Link>
-                            </li>
-                            <li>
+                            </li> 
+                            <li className="nav__menu-item">
                                 <Link to='/about'>About</Link>
                             </li>
                         </ul>
