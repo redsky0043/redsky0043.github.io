@@ -1,8 +1,0 @@
-
-    1. hello 1
-    2. hello name
-    3. hello ilya
-
-    // *написано без участі JS-ка))
-
-

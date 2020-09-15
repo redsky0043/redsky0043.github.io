@@ -1,0 +1,13 @@
+body {
+    background-color: #1f291d;
+}
+
+.svg {
+    stroke: #005cbf;
+    stroke-width: 2px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    height: 100px;
+    width: 100px;
+    fill: none;
+}
