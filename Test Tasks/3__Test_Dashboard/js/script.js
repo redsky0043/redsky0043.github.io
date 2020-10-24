@@ -1,7 +1,11 @@
 
-document.querySelector('.menu-btn').onclick = function () {
-    document.querySelector('.menu').classList.toggle("menu--active");
-    document.querySelector('.content').classList.toggle("content--active");
+const menu = document.querySelector('.menu');
+const content = document.querySelector('.content');
+const menuBtn = document.querySelector('.menu-btn');
+
+menuBtn.onclick = function () {
+    menu.classList.toggle("menu--active");
+    content.classList.toggle("content--active");
 }
 
 const menuList = document.querySelectorAll('.menu-list__item');
