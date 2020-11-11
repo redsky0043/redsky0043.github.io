@@ -73,9 +73,10 @@ body{
     padding-left: 65px;
     align-items: center;
     text-decoration: none;
+    border-left: 7px solid rgba(0, 0, 0, 0);
 }
 
-.menu-list__item--active{
+.menu-list__item--active {
     background-color: var(--grey);
     border-left: 7px solid #1eb0ee;
     background-image: url(../img/arrow.png); 
@@ -83,6 +84,10 @@ body{
     background-position: right;
     background-repeat: no-repeat;
     background-position-x: 250px;
+}
+
+.menu-list__item.menu-list__item--active .menu-list__text {
+    color: var(--dark)
 }
 
 .menu-list__img{
