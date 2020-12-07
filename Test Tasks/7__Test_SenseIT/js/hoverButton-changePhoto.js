@@ -1,15 +1,15 @@
-const btnApplication = document.querySelector('.btn--apply');
+const btnApply = document.querySelector('.btn--apply');
 const btnJury = document.querySelector('.btn--jury');
 
 const sliderSecond = document.querySelector('.slider-second');
 const sliderThird = document.querySelector('.slider-third');
 
 
-btnApplication.addEventListener('mouseover', () => {
+btnApply.addEventListener('mouseover', () => {
     sliderSecond.style.opacity = 1;
 });
 
-btnApplication.addEventListener('mouseout', () => {
+btnApply.addEventListener('mouseout', () => {
     sliderSecond.style.opacity = 0;
 });
 
