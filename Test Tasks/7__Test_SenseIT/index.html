@@ -13,7 +13,7 @@
 </head>
 
 <body>
-  <div class="header">
+  <header class="header">
     <div class="header__wrapper">
       <a class="header__logo" href="#">
         <img class="header__img" src="./images/logo.png" alt="logo">
@@ -60,7 +60,7 @@
       <span></span>
       <span></span>
     </button>
-  </div> 
+  </header> 
   <section class="main">
     <div class="content">
       <div class="content__wrapper">
@@ -108,15 +108,19 @@
         </div>
       </div>
       <div class="slider">
-        <div class="slider__item slider-first">
-          <img class="slider__img" src="./images/slider-item-1.jpg" alt="slider-photo" >
+        <div class="slider__wrapper">
+          <div class="slider__item">
+            <img class="slider__img" src="./images/slider-item-1.jpg" alt="slider-photo" >
+          </div>
+          <div class="slider__item ">
+            <img class="slider__img" src="./images/slider-item-2.jpg" alt="slider-photo" >
+          </div>
+          <div class="slider__item ">
+            <img class="slider__img" src="./images/slider-item-3.jpg" alt="slider-photo" >
+          </div>
         </div>
-        <div class="slider__item slider-second">
-          <img class="slider__img" src="./images/slider-item-2.jpg" alt="slider-photo" >
-        </div>
-        <div class="slider__item slider-third">
-          <img class="slider__img" src="./images/slider-item-3.jpg" alt="slider-photo" >
-        </div>
+        <img class="slider__img slider-second" src="./images/slider-item-2.jpg" alt="button-hover-photo" >
+        <img class="slider__img slider-third" src="./images/slider-item-3.jpg" alt="button-hover-photo" >
       </div>
       <div class="main__pixels">
         <div class="main__pixel"></div>
@@ -142,7 +146,6 @@
       </div>
     </div> 
   </section>
-
   <section class="jury">
     <div class="container">
       <h2 class="jury__title">
@@ -499,10 +502,6 @@
   </section>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="js/libs.min.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/hoverButton-changePhoto.js"></script>
-  <script src="js/hoverButton-pixelsAnimation.js"></script>
-  <script src="js/openMenuBtn.js"></script>
 </body>
 
 </html>
