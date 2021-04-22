@@ -1,0 +1,51 @@
+@import "./variables/vars";
+@import "./mixins/mixins";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: none;
+  font-family: $system-fonts-list;
+  scroll-behavior: smooth;
+}
+
+body {
+  @extend %custom-scrollbar;
+
+  font: $regular #{$fs-base}/#{$lh-base};
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-width: 320px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-weight: normal;
+  line-height: 1;
+  margin: 0 auto;
+  scroll-behavior: smooth;
+}
+
+button {
+  margin: 0;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  &::-moz-focus-inner {
+    border: 0;
+  }
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+}
+
+.container {
+  width: 100%;
+  padding: 0 50px;
+  margin: 0 auto;
+  position: relative;
+}
