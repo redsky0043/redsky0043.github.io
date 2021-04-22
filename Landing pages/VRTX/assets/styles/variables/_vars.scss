@@ -1,0 +1,70 @@
+// internal variables
+$black: #000000;
+$gray-dark: #0F1014;
+$gray-medium: #181A1F;
+$gray-light: #F3F3F3;
+$white: #ffffff;
+$orange: #EB6535;
+// internal variables
+
+// external variables
+$accent: $orange;
+$scrollbar-bg: $black;
+$logo: $gray-light;
+$border-social: rgba(255, 255, 255, 0.2);
+$bg-scroll: $gray-medium;
+
+$text-light: $gray-light;
+$text-dark: $black;
+
+$bg-section: $gray-light;
+$bg-light-section: $white;
+$bg-dark-section: $gray-dark;
+
+$line-main: #34373a;
+$scroll-main: #9a9a9a;
+// external variables
+
+// External fonts
+$proxima-nova: "ProximaNova", sans-serif;
+$oswald: "Oswald", sans-serif;
+
+//Font
+$fs-base: 16px;
+$lh-base: 1;
+$system-fonts-list: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+  Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+  "Segoe UI Symbol";
+
+// Font weight
+$light: 300;
+$regular: 400;
+$medium: 500;
+$semi-bold: 600;
+$bold: 700;
+$extra-bold: 800;
+$black: 900;
+
+// Transitions
+$transition-0-3s-ease: all ease 0.3s;
+$transition-0-8s-ease: all ease 0.8s;
+$transition-1s-ease: all ease 1s;
+$transition-0-3s-bezier: all 0.3s cubic-bezier(0.4, 0, 0, 1);
+$transition-1s-bezier: all 1s cubic-bezier(0.4, 0, 0, 1);
+
+%custom-scrollbar {
+  @media only screen and (min-width: 600px) {
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: $line-main;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $scroll-main;
+      border-radius: 100px;
+    }
+  }
+}
