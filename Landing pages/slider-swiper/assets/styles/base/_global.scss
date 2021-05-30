@@ -1,0 +1,34 @@
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 100%;
+}
+
+body {
+  @extend %custom-scrollbar;
+
+  height: 100%;
+  display: grid;
+  position: relative;
+  grid-template-rows: auto 1fr auto;
+  background-color: $white;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  line-height: 120%;
+  color: $text-light;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 400;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+  cursor: none;
+
+  &.isMobMenuOpen {
+    overflow: hidden;
+  }
+}

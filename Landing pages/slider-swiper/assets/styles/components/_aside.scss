@@ -1,0 +1,86 @@
+.home-header__content {
+  height: 100%;
+}
+
+.home-aside {
+  padding: $size 0 0 0;
+  width: $size;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  background-color: $bg-aside;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  &__decoration {
+    flex: 1 0 0;
+    width: 100%;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='47' height='97' viewBox='0 0 47 97' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cline x1='19.4455' y1='0.773037' x2='46.4455' y2='53.773' stroke='gray'/%3e%3cline x1='19.4455' y1='20.773' x2='46.4455' y2='73.773' stroke='gray'/%3e%3cline x1='0.445217' y1='3.77244' x2='46.4452' y2='93.7724' stroke='gray'/%3e%3cline x1='0.44552' y1='23.773' x2='27.4455' y2='76.773' stroke='gray'/%3e%3cline x1='0.44552' y1='43.773' x2='27.4455' y2='96.773' stroke='gray'/%3e%3c/svg%3e ");
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: center;
+  }
+
+  &__social {
+    flex: 1 0 0;
+  }
+
+  &__share-icon {
+    width: $size;
+    height: $size;
+    flex: 0 0 $size;
+    background-color: $accent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      .home-aside__img {
+        stroke: $bg-main;
+      }
+    }
+  }
+
+  &__img {
+    width: 15px;
+    height: 15px;
+    fill: $bg-light;
+    transition: fill 0.3s ease-out;
+  }
+}
+
+.social-item {
+  margin: -1px 0 0 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease-out;
+  border: 1px solid rgba($text-light, 0.3);
+  border-bottom: 1px solid transparent;
+
+  &:last-of-type {
+    border-bottom: 1px solid rgba($text-light, 0.3);
+  }
+
+  &:hover {
+    border: 1px solid $accent;
+    background-color: $accent;
+
+    .social-item__img {
+      opacity: 1;
+    }
+  }
+
+  &__img {
+    width: 15px;
+    height: 15px;
+    opacity: 0.3;
+    fill: $text-light;
+    transition: opacity 0.3s ease-out;
+  }
+}

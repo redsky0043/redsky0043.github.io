@@ -1,0 +1,28 @@
+#cursor {
+  margin: -9px 0 0 -9px;
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background-color: $accent;
+  z-index: 999;
+  border-radius: 50%;
+  user-select: none;
+  pointer-events: none;
+  transition: transform 0.5s cubic-bezier(0.75, -1.27, 0.3, 2.33);
+  overflow: hidden;
+
+  &.active {
+    transform: scale(3.5);
+    background-color: rgba($bg-light, 0.1);
+    border: .1px solid $accent;
+    backdrop-filter: blur(0.5px);
+
+    &::after {
+      opacity: 1;
+    }
+  }
+
+  &.hidden {
+    transform: scale(0.001);
+  }
+}
