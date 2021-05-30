@@ -1,0 +1,17 @@
+// Custom scrollbar
+%custom-scrollbar {
+  @media only screen and (min-width: 600px) {
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: #34373a;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #9a9a9a;
+      border-radius: 100px;
+    }
+  }
+}

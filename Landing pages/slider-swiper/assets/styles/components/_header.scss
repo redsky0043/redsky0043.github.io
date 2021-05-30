@@ -1,0 +1,132 @@
+.home-header {
+  padding: $size 0 0 0;
+  height: 100vh;
+  color: $text-light;
+  background-color: $bg-main;
+  cursor: none;
+}
+
+.top-line {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: $size;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $bg-main;
+  z-index: 10;
+  border-bottom: 1px solid rgba($white, $border-opacity);
+
+  &__decoration {
+    flex: 1 0 0;
+    text-align: center;
+
+    &:before {
+      content: '';
+      height: 1px;
+      width: 50px;
+      background-color: $bg-light;
+      display: inline-block;
+      opacity: $border-opacity*1.5;
+      position: relative;
+      top: -4px;
+    }
+  }
+
+  &__contacts {
+    text-transform: uppercase;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.4em;
+    color: rgba($text-light, 0.5);
+    display: flex;
+    align-items: center;
+  }
+
+  &__separator {
+    margin: 0 20px;
+    width: 1px;
+    height: 30px;
+    background-color: $bg-light;
+    opacity: 0.2;
+  }
+
+  &__numbers,
+  &__text {
+    margin: 0 0 0 5px;
+
+    & a {
+      color: $accent;
+    }
+  }
+
+  &__numbers {
+    color: $accent;
+  }
+
+  &__text {
+    color: rgba($text-light, 0.75);
+  }
+}
+
+.logo {
+  flex: 0 0 300px;
+  display: flex;
+  align-items: center;
+  color: $text-light;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.5em;
+
+  &__img-wrapper {
+    width: $size;
+    height: $size;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__img {
+    width: 40px;
+  }
+}
+
+.menu-button-container {
+  height: $size;
+  flex: 0 0 200px;
+  text-align: right;
+  position: relative;
+}
+
+.menu-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: $size;
+  height: $size;
+  background-color: $bg-btn;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  transition: background-color 0.3s ease-out;
+
+  &:hover {
+    background-color: $accent;
+  }
+
+  &__line {
+    margin: 0 0 7px 0;
+    width: 30px;
+    height: 1px;
+    background-color: $bg-light;
+
+    &:last-of-type {
+      margin: 0;
+    }
+  }
+}
+
