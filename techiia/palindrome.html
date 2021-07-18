@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="icon.png" sizes="16x16" type="image/png">
+    <title>PALINDROME</title>
+</head>
+<body>
+    
+
+    <script>
+
+        let userWord; 
+
+        const isPalindrome = (word) => {
+            return word === word.split('').reverse().join('') ? 
+                   alert('this is palindrome') : 
+                   alert('this is not palindrome');
+        };
+
+        while (userWord == '' || userWord == null) {
+            userWord = prompt('Enter your word', '');
+
+            if (userWord !== '' && userWord !== null) {
+                isPalindrome(userWord);
+            }
+        }
+        
+        
+    </script>
+</body>
+</html>
