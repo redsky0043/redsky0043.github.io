@@ -1,10 +1,11 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 let mode = 'development'
 if (process.env.NODE_ENV === 'production') {
     mode = 'production'
 }
+console.log(mode + ' mode')
 
 module.exports = {
     mode: mode,
@@ -13,19 +14,19 @@ module.exports = {
         user: './src/user.js',
     },
     output: {
-        filename: "[name].[contenthash].js",
+        filename: '[name].[contenthash].js',
         assetModuleFilename: "assets/[hash][ext][query]",
         clean: true,
     },
     devtool: 'source-map',
     optimization: {
-      splitChunks: {
-          chunks: "all",
-      },
+        splitChunks: {
+            chunks: 'all',
+        },
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: "[name].[contenthash].css"
+            filename: '[name].[contenthash].css'
         }),
         new HtmlWebpackPlugin({
             template: "./src/index.pug",
@@ -35,7 +36,7 @@ module.exports = {
         rules: [
             {
                 test: /\.html$/i,
-                loader: 'html-loader',
+                loader: "html-loader",
             },
             {
                 test: /\.(sa|sc|c)ss$/,
@@ -52,13 +53,13 @@ module.exports = {
                                         {
                                             // Options
                                         },
-                                    ]
+                                    ],
                                 ],
                             },
                         },
                     },
                     "sass-loader",
-                ]
+                ],
             },
             {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
@@ -71,7 +72,7 @@ module.exports = {
             {
                 test: /\.pug$/,
                 loader: 'pug-loader',
-                exclude: /(node_modules|browser_components)/,
+                exclude: /(node_modules|bower_components)/,
             },
             {
                 test: /\.m?js$/,
@@ -81,8 +82,8 @@ module.exports = {
                     options: {
                         presets: ['@babel/preset-env']
                     }
-                },
-            },
+                }
+            }
         ]
     },
 }
