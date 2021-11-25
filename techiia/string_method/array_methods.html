@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ARRAY</title>
+    <style>
+        body {
+            background-color: rgb(10, 28, 16);
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        const arr = ['Your', 'bunny', 'wrote', 'JavaScript'];
+        // const arrNum = [1, 2, 3, 24, 15];
+        // const obj = {
+        //     0: "something",
+        //     length: 1
+        // };
+        // const users = [
+        //     {id: 1, name: "Johny"},
+        //     {id: 2, name: "Michael"},
+        //     {id: 3, name: "Bob"}
+        // ];
+
+
+        // Adding/deleting elements to array
+        // PUSH/POP/SHIFT/UNSHIFT
+        // arr.push('SCSS');
+        // arr.pop('');
+        // arr.shift('');
+        // arr.unshift('Learning');
+        // console.log(arr);
+
+
+
+        // SPLICE (index[, deleteCount, elem1, ..., elemN])
+        // const splice1 = arr.splice(2, 1); // ["wrote"] "from" ["Your", "bunny", "JavaScript"]
+        // const splice2 = arr.splice(3, 1, 'CSS'); // ["JavaScript"] "from" ["Your", "bunny", "wrote", "CSS"]
+        // const splice3 = arr.splice(3, 0, 'difficult'); // ["Your", "bunny", "wrote", "difficult", "JavaScript"]
+        // console.log(arr) 
+        // console.log(splice1) 
+        // console.log(arr, splice2) 
+        // console.log(arr) 
+
+
+
+        // SLICE ([start], [end])
+        // const slice1 = arr.slice(1, 3); // ["bunny", "wrote"] "from" ["Your", "bunny", "wrote", "JavaScript"]
+        // const slice2 = arr.slice(); // ["Your", "bunny", "wrote", "JavaScript"] "from" ["Your", "bunny", "wrote", "JavaScript"]
+        // console.log(slice2) 
+
+
+
+        // CONCAT (arg1, arg2...)
+        // const concat1 = arr.concat(arrNum); // ['Your', 'bunny', 'wrote', 'JavaScript', 1, 2, 3, 4, 5]
+        // const concat2 = arr.concat(obj); // ['Your', 'bunny', 'wrote', 'JavaScript', {obj}]
+        // console.log(concat1) 
+
+    
+
+        // Перебор:
+        // FOREACH - fn for every item in array
+
+        // const foreach1 = arrNum.forEach((item, index, array) => {
+        //     console.log(`${item} have a position ${index} in ${array}`)
+        // });
+
+        // FOR 
+        // arrNum[15] = '99';
+
+        // for (i = 0; i < arrNum.length; i++) {
+        //     arrNum[i] *= 5
+        //     console.log(arrNum[i])
+        // }
+
+
+        // FOR__OF
+        // console.log(arrNum)
+
+        // for (let val of arrNum) {
+        //     val *= 10000;
+        //     console.log(val);
+        // }
+
+
+        // FOR__IN
+
+        // for (let key in arrNum) {
+        //     arrNum[key] *= 100
+        //     console.log(arrNum[key])
+        // }
+
+        // WHILE
+    
+
+
+
+
+
+        // Поиск в массиве
+        // INDEXOF
+        // const indexof = arr.indexOf();
+        // const arrNaN = [NaN];
+
+        // console.log(arr.indexOf('wrote')); // 2
+        // console.log(arr.indexOf('React')); // -1
+        // console.log(arr.includes('React')); // false
+        // console.log(arr.includes('JavaScript')); // true
+
+        // console.log(arrNaN.indexOf(NaN)); // -1 !!!
+        // console.log(arrNaN.includes(NaN)); // true
+
+
+
+        // FIND / FINDINDEX
+        // console.log(users.find(item => item.id == 1).name); // Johny
+        // console.log(users.findIndex(item => item.id == 3)); // 2
+
+
+
+        // FILTER
+        // const filter1 = users.filter(item => item.id < 3); // [
+        //                                                 //      0: {id: 1, name: 'Johny'}
+        //                                                 //      1: {id: 2, name: 'Michael'}
+        //                                                 //    ]
+        // console.log(filter1)
+
+
+        // Преобразование массива
+        // MAP 
+        // const arrLength = arr.map(item => item.length); // [4, 5, 5, 10]
+        // console.log(arrLength)
+
+
+        // SORT
+        // const sort1 = arrNum.sort(); // [1, 15, 2, 24, 3]
+        // console.log(sort1);
+        // console.log(arrNum);
+
+
+
+        // REVERSE
+        // const reverse = arr.reverse(); // ['JavaScript', 'wrote', 'bunny', 'Your']
+        // console.log(reverse);
+
+        // реализовать РЕВЕРС
+
+
+
+        // REVERSE
+        // const stringNames = 'Brad, Johnny, Bruce';
+        // const arrSplit = stringNames.split(', ');
+
+        // for (let name of arrSplit) {
+        //     console.log(`Send message for ${name}`)
+        // }
+
+        // console.log(arrNum);
+        // console.log(arrNum.join(', '));
+
+
+        // REDUCE
+        // let value = arr.reduce(function(previousValue, item, index, array) {
+        // ...
+        // }, [initial]);
+        // const reduce = arrNum.reduce((sum = 0, current) => sum + current);
+
+        // console.log(reduce);
+
+
+
+
+        //
+        // TASKS
+        //
+
+        // 1
+        // const camelise = str => {
+        //     return str.split('-').map((item, index) => index == 0 ? item : item[0].toUpperCase() + item.slice(1)).join('')
+        // }
+
+        // console.log(camelise('-webkit-transition'))
+
+
+
+        // 2
+        // let arrNum = [5, 3, 8, 1];
+
+        // const filterRange = (arr, a, b) => {
+        //     return arr.filter(item => (a <= item && item <= b));
+        // }
+
+        // console.log( filterRange(arrNum, 1, 4) ); // 3,1
+
+
+
+        // 3
+        // const arrDeg = [5, 2, 1, -10, 8];
+
+        // const newArr = arrDeg.sort((a, b) => b - a);
+
+        // console.log(newArr)
+
+
+
+        // 4
+        // [1, 2, 3, 4, 5]
+        // (elem, arr)
+
+        // const deletingElemFromArray = (elem, array) => {
+        //     array.splice(elem, 1)
+        //     return array
+        // }
+
+        // const deletingElemFromArray = (elem, array) => {
+        //     if (elem && array) { 
+        //         const index = array.indexOf(elem);
+
+        //         index >= 0 ? 
+        //             array.splice(index, 1) : 
+        //             console.log('no matches')
+                
+        //     } else {
+        //         console.log('Write all parameters')
+        //     }
+
+        //     return array
+        // }
+
+        // console.log(deletingElemFromArray(2, arr));
+
+
+
+        // REVERSE
+
+        // const reverse = (arr) => {
+        //     const tempArr = arr.slice();
+        //     arr.length = 0;
+
+        //     for (i = tempArr.length - 1; i >= 0; i--) {
+        //         arr.push(tempArr[i])
+        //     }
+
+        //     return arr
+        // }
+
+        // console.log(arr);
+        // console.log(reverse(arr));
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>STRING</title>
+    <style>
+        body {
+            background-color: rgb(10, 28, 16);
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        const string = "let's test the string methods";
+        const methods = 11;
+        const templateString = `let's test ${methods}
+            string
+            methods
+        `; // let's test 11 string methods
+
+        // console.log(string);
+        // console.log(string.replace(/string/i, 'array'));
+        // console.log(string.length)
+        // console.log(string[4])
+        // console.log(string.charAt(4))
+        // console.log(string.toUpperCase())
+        // console.log(string.toLowerCase())
+        // console.log(templateString)
+
+
+
+        // Получение подстроки
+        // SLICE (start [, end])
+        const slicedStrind = string.slice(0, 7); // let's t
+        const slicedStrindReverse = string.slice(-14, -8); // string
+
+        // console.log(slicedStrind)
+        // console.log(slicedStrindReverse)
+
+        
+
+        // SUBSTRING (start [, end]), start > end
+        const substringString = string.substring(17, 6); // test the st
+
+        // console.log(substringString)
+
+
+
+        // SUBSTR (start [, length])
+        const substrString = string.substr(6, 4) // test
+
+        // console.log(substrString)
+
+
+
+        // Поиск подстроки
+        // INDEXOF(substr, pos).
+        const indexof1 = string.indexOf('methods');
+        const indexof2 = string.indexOf('dogs');
+        const indexof3 = string.indexOf('the', 12);
+        const indexof4 = string.indexOf('the', 6);
+
+        // console.log(indexof1); // 22
+        // console.log(indexof2); // -1
+        // console.log(indexof3); // -1
+        // console.log(indexof4); // 11
+
+
+
+        // LASTINDEXOF(substr, pos).
+        const lastIndexof = string.lastIndexOf('st');
+        const indexof5 = string.indexOf('st');
+
+        // console.log(lastIndexof); // 15
+        // console.log(indexof5); // 8
+
+
+        // INCLUDES(substr, pos).
+        const incl1 = string.includes('eth');
+        const incl2 = string.includes('ethsss');
+
+        // console.log(incl1); // true
+        // console.log(incl2); // false
+
+
+        // STARTWITH/ENDWITH(substr, pos).
+        const with1 = string.startsWith('le');
+        const with2 = string.endsWith('ods');
+
+        // console.log(with1); // true
+        // console.log(with2); // true
+
+
+        var myString = 'Привет, мир. Как дела?';
+        var splits = myString.split(' ', 3);
+
+        // console.log(splits);
+
+
+
+
+        //
+        // TASKS
+        //
+
+        // 1
+        // const ucFirst = (str) => {
+        //     return str.slice(0, 1).toUpperCase() + str.slice(1)
+        // };
+
+        // console.log(ucFirst('apple'))
+
+        // 2
+        // const checkSpam = (str) => {
+        //     return str.toLowerCase().includes('viagra') || str.toLowerCase().includes('xxx')
+        // };
+
+        // console.log(checkSpam('buy ViAgRA now'));
+        // console.log(checkSpam("innocent rabbit"));
+
+        // 3 
+        // const truncate = (str, maxlength) => {
+        //     return str.length > maxlength ? 
+        //         str.slice(0, maxlength) + '...' : 
+        //         str
+        // }
+
+        // console.log(truncate('appercut', 6))
+
+        // 4
+        // const extractCurrencyValue = (str) => {
+        //     return +str.slice(1);
+        // }
+
+        const extractCurrencyValueUAH = (str) => {
+            // return +str.slice(0, str.length - 3);
+            // return +str.replace(/[a-zа-яё]/gi, '');
+            return +str.replace(/[^0-9,.]/g, '');
+        }
+
+        console.log(extractCurrencyValueUAH('d1200333.000uah')) // 12003330
+        
+    </script>
+</body>
+</html>
