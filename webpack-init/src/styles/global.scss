@@ -1,0 +1,35 @@
+$primaryColor: #5404FF;
+$secondaryColor: #B4FA6D;
+$bgColor: black;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: generalFont;
+}
+
+body {
+  background-color: $bgColor;
+  min-height: 100vh;
+  color: $secondaryColor;
+}
+
+.title {
+  color: $primaryColor;
+  text-align: center;
+  text-transform: uppercase;
+
+  &__sub {
+    color: $secondaryColor;
+    text-align: center;
+    font-size: 28px;
+    height: 140px;
+    background: url('../images/webpack.png') center;
+    background-size: contain;
+    display: flex;
+    justify-content: space-between;
+  }
+}
