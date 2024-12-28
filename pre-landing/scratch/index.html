@@ -405,7 +405,7 @@
                         card.classList.add('isCleared')
                         ctx.clearRect(0, 0, canvas.width, canvas.height)
                     }
-                    
+
                     // Check if all cards are cleared
                     const allCleared = Array.from(cards).every(card => card.classList.contains('isCleared'))
                     if (allCleared) {
@@ -426,13 +426,24 @@
                     ctx.beginPath()
                     ctx.arc(x, y, 40, 0, Math.PI * 3)
                     ctx.fill()
-                    console.log('arc: ', {x, y, '3nd': 40, '4nd': 0,Math: Math.PI * 2})
                 }
 
+                // mouse events
                 canvas.addEventListener('mousedown', startDrawing)
                 canvas.addEventListener('mousemove', draw)
                 canvas.addEventListener('mouseup', endDrawing)
                 canvas.addEventListener('mouseleave', endDrawing)
+
+                // mobile events
+                canvas.addEventListener('touchstart', (e) => {
+                    e.preventDefault()
+                    startDrawing(e.touches[0])
+                });
+                canvas.addEventListener('touchmove', (e) => {
+                    e.preventDefault()
+                    draw(e.touches[0])
+                });
+                canvas.addEventListener('touchend', endDrawing)
             })
         </script>
     </body>
