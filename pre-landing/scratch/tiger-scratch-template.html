@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scratch Card Game</title>
+    <style>
+        html {
+            height: 100%;
+            overflow: hidden;
+            font-size: calc(100vw*0.05);
+
+            @media (min-width: 370px) {
+                font-size: 16px;
+            }
+        }
+
+        body {
+            margin: 0;
+            position: relative;
+            height: 100svh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, #ff9800, #ff5722);
+            color: #fff;
+        }
+
+        button {
+            border: none;
+            cursor: pointer;
+            background-color: transparent;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        img {
+            user-select: none;
+            pointer-events: none;
+        }
+
+        .bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            object-fit: cover;
+        }
+
+        .container {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            max-width: 350px;
+            padding: 20px 20px 100px 20px;
+            display: grid;
+            grid-template-rows: auto 1fr;
+            gap: 40px;
+        }
+
+        .logo {
+            width: 50%;
+            height: auto;
+            display: block;
+            z-index: 2;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .scratch {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        .scratchCard {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(5px);
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+
+            &:nth-of-type(1) {
+                &.isAnimated {
+                    &::after {
+                        position: absolute;
+                        z-index: 3;
+                        width: 20%;
+                        height: 36%;
+                        display: block;
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-image: url('hand.webp');
+                        animation: scratch 4s ease-in-out infinite;
+                        pointer-events: none;
+                        content: "";
+                    }
+                }
+            }
+
+            &:nth-of-type(2) {
+                background: radial-gradient(50% 50% at 50% 50%, rgba(250, 0, 255, .75) 0, rgba(103, 35, 222, .75) 100%);
+            }
+        }
+
+        .scratchCardWrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid #fff;
+        }
+
+        .result {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            font-weight: bold;
+            z-index: 1;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            cursor: grab;
+        }
+
+        .modal {
+            display: none;
+            position: absolute;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            top: 30%;
+            left: 0;
+            right: 0;
+            z-index: 10;
+            padding: 10px;
+        }
+
+        .modalWin {
+            width: 80%;
+        }
+
+        .modalTitle {
+            font-size: 20px;
+            color: currentColor;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .modalDescription {
+            font-size: 28px;
+            color: currentColor;
+            font-weight: 900;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .overlay {
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .isCleared {
+            pointer-events: none;
+        }
+
+        .coins {
+            position: fixed;
+            inset: 0;
+            width: 50%;
+            height: auto;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .isWinner {
+            .modal {
+                display: flex;
+            }
+            .overlay {
+                opacity: 1;
+            }
+            .scratch {
+                display: none;
+            }
+            .resultButton {
+                display: grid;
+            }
+        }
+
+        .light {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(1);
+            width: 100%;
+            height: auto;
+            z-index: 0;
+            mix-blend-mode: screen;
+            animation: pulse-light 1s ease-in infinite alternate;
+        }
+
+        .resultButton {
+            position: absolute;
+            display: grid;
+            place-items: center;
+            bottom: 7%;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 74px;
+            color: #7a2306;
+            font-weight: 700;
+            font-size: 1.75rem;
+            z-index: 20;
+        }
+
+        .resultButton {
+            display: none;
+        }
+
+        .startButtonWrap {
+            position: relative;
+            width: 70%;
+            animation: pulse 1s ease-in infinite alternate;
+            cursor: pointer;
+        }
+
+        .startButtonImg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .startButtonText {
+            white-space: nowrap;
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        @keyframes pulse-light {
+            from {
+                transform: translate(-50%, -50%) scale(1);
+            }
+            to {
+                transform: translate(-50%, -50%) scale(3);
+            }
+        }
+
+        @keyframes scratch {
+            0% {
+                top: 5%;
+                left: 5%;
+            }
+            25% {
+                top: 20%;
+                left: 85%;
+            }
+            50% {
+                top: 40%;
+                left: 5%;
+            }
+            75% {
+                top: 60%;
+                left: 85%;
+            }
+            100% {
+                top: 80%;
+                left: 5%;
+            }
+        }
+
+    </style>
+</head>
+    <body>
+        <img
+            src="bg-mob.jpg"
+            srcset='
+                bg-mob.jpg 500w,
+                bg-desktop.jpg 1568w,
+            '
+            alt="background"
+            class="bg"
+        />
+        <div class="container">
+            <img src='logo.png' alt="logo" class="logo" />
+            <img src='light.png' alt="arrow" class="light" />
+            <div class="scratch">
+                <div class="scratchCard isAnimated">
+                    <div class="scratchCardWrapper">
+                        <canvas class="scratchCanvas"></canvas>
+                        <div class="result">
+                            <img src="./win-object.png" alt="win-object">
+                        </div>
+                    </div>
+                </div>
+                <div class="scratchCard">
+                    <div class="scratchCardWrapper">
+                        <canvas class="scratchCanvas"></canvas>
+                        <div class="result"></div>
+                    </div>
+                </div>
+                <div class="scratchCard">
+                    <div class="scratchCardWrapper">
+                        <canvas class="scratchCanvas"></canvas>
+                        <div class="result">
+                            <img src="./win-object.png" alt="win-object">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal">
+                <img src='coins.gif' alt="coins" class="coins" />
+                <img src='title.png' alt="modal" class="modalWin" />
+                <p class="modalTitle">$bonusesWindowTitle</p>
+                <p class="modalDescription">$bonusesWindowDescription</p>
+            </div>
+            <a href="$linkToOffer" class="resultButton" id="resultButton">
+                <span class="startButtonWrap">
+                    <img src='button.png' alt="logo" class="startButtonImg" />
+                    <span class="startButtonText">
+                        $bonusesButton
+                    </span>
+              </span>
+            </a>
+        </div>
+        <div class="overlay"></div>
+        <audio id="winSound" src="win.mp3"></audio>
+        <script>
+            const cards = document.querySelectorAll('.scratchCard')
+            const winSound = document.getElementById("winSound")
+
+            cards.forEach((card) => {
+                const canvas = card.querySelector('.scratchCanvas')
+                const ctx = canvas.getContext('2d')
+
+                canvas.width = canvas.offsetWidth
+                canvas.height = canvas.offsetHeight
+                const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height)
+                gradient.addColorStop(0, '#ff9800')
+                gradient.addColorStop(1, '#ff5722')
+
+                ctx.fillStyle = gradient
+                ctx.fillRect(0, 0, canvas.width, canvas.height)
+                ctx.globalCompositeOperation = 'destination-out'
+
+                let isDrawing = false
+
+                function startDrawing(e) {
+                    cards[0].classList.remove('isAnimated')
+                    isDrawing = true
+                    draw(e)
+                }
+
+                function endDrawing() {
+                    isDrawing = false
+
+                    // Check if the canvas is cleared enough
+                    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height)
+                    let clearedPixels = 0
+                    for (let i = 0; i < imageData.data.length; i += 4) {
+                        if (imageData.data[i + 3] === 0) {
+                            clearedPixels++
+                        }
+                    }
+
+                    const clearedPercentage = (clearedPixels / (canvas.width * canvas.height)) * 100
+                    if (clearedPercentage > 70) {
+                        card.classList.add('isCleared')
+                        ctx.clearRect(0, 0, canvas.width, canvas.height)
+                    }
+                    
+                    // Check if all cards are cleared
+                    const allCleared = Array.from(cards).every(card => card.classList.contains('isCleared'))
+                    if (allCleared) {
+                        setTimeout(() => {
+                            document.body.classList.add('isWinner')
+                            winSound.play()
+                        }, 1000)
+                    }
+                }
+
+                function draw(e) {
+                    if (!isDrawing) return
+
+                    const rect = canvas.getBoundingClientRect()
+                    const x = e.clientX - rect.left
+                    const y = e.clientY - rect.top
+
+                    ctx.beginPath()
+                    ctx.arc(x, y, 40, 0, Math.PI * 3)
+                    ctx.fill()
+                    console.log('arc: ', {x, y, '3nd': 40, '4nd': 0,Math: Math.PI * 2})
+                }
+
+                canvas.addEventListener('mousedown', startDrawing)
+                canvas.addEventListener('mousemove', draw)
+                canvas.addEventListener('mouseup', endDrawing)
+                canvas.addEventListener('mouseleave', endDrawing)
+            })
+        </script>
+    </body>
+</html>

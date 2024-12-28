@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Meta title</title>
+        <meta name="description" content="Meta description">
+        <style>
+            html {
+                height: 100%;
+                overflow: hidden;
+                font-size: calc(100vw*0.05);
+
+                @media (min-width: 370px) {
+                    font-size: 16px;
+                }
+            }
+
+            body {
+                margin: 0;
+                position: relative;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                overflow: hidden;
+            }
+
+            button {
+                border: none;
+                cursor: pointer;
+                background-color: transparent;
+            }
+
+            p {
+                margin: 0;
+            }
+
+            .bg {
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+                object-fit: cover;
+            }
+
+            .container {
+                position: relative;
+                height: 100%;
+                width: 100%;
+                max-width: 350px;
+                padding: 0 10px;
+            }
+
+            .logo {
+                position: absolute;
+                top: 3%;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 60%;
+                height: auto;
+                display: block;
+                z-index: 2;
+            }
+
+            .startButton, .resultButton {
+                position: absolute;
+                display: grid;
+                place-items: center;
+                bottom: 7%;
+                left: 0;
+                right: 0;
+                width: 80%;
+                height: auto;
+                color: white;
+                font-weight: 700;
+                font-size: 1.75rem;
+                z-index: 5;
+                animation: pulse 1s ease-in infinite alternate;
+                margin-left: auto;
+                margin-right: auto;
+
+                &:active {
+                    .startButtonTop {
+                        transform: translateY(5%);
+                    }
+                }
+
+                &:disabled {
+                    pointer-events: none;
+                }
+            }
+
+            .resultButton {
+                display: none;
+            }
+
+            .startButtonTop {
+                width: 100%;
+                z-index: 1;
+
+                img {
+                    position: relative;
+                    top: 5%;
+                    width: 100%;
+                }
+            }
+
+            .startButtonText {
+                white-space: nowrap;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            .frame {
+                position: relative;
+                top: 45%;
+                transform: translateY(-50%);
+                width: 100%;
+                aspect-ratio: 1/1;
+                display: grid;
+                gap: 2%;
+                grid-template-columns: repeat(3, 1fr);
+                z-index: 1;
+                background-image: url('frame-bg.jpg');
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+            .frameImg {
+                position: absolute;
+                top: -5%;
+                left: -2%;
+                right: -2%;
+                width: 104%;
+                height: 110%;
+                z-index: 10;
+            }
+
+            .spinItem {
+                /*background-color: whitesmoke;*/
+                display: grid;
+                place-items: center;
+                grid-auto-flow: row;
+                overflow: hidden;
+                z-index: 2;
+            }
+
+            .reels {
+                display: grid;
+                place-items: center;
+                transition: transform 2s cubic-bezier(0.18, 0.89, 0.32, 1.1);
+                margin-top: -30%;
+            }
+
+            .reelsImg {
+                width: 70%;
+                aspect-ratio: 1/1;
+                padding: 5%;
+                transition: transform 2s ease-in-out;
+            }
+
+            .gradientTop {
+                position: absolute;
+                top: 0;
+                width: 100%;
+                height: 40%;
+                background: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(255,255,255,0) 50%);
+                z-index: 3;
+            }
+
+            .gradientBottom {
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 40%;
+                background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(255,255,255,0) 50%);
+                z-index: 3;
+            }
+
+            .rotation {
+                animation: rotation 2s linear;
+                animation-iteration-count: initial;
+            }
+
+            .person {
+                position: absolute;
+                bottom: -35%;
+                left: -45%;
+                z-index: 2;
+                height: 100%;
+                transform-origin: bottom center;
+                animation: init-spin-decor 8s ease infinite;
+            }
+
+            .object {
+                position: absolute;
+                width: 15%;
+                height: auto;
+                transform: translateY(-100%);
+                z-index: 0;
+            }
+
+            .object-1 {
+                left: -10%;
+                animation: object-drop-1 5s cubic-bezier(0.18, 0.89, 0.32, 1.28) infinite;
+                animation-delay: 0.5s;
+            }
+
+            .object-2 {
+                right: -15%;
+                animation: object-drop-2 5s cubic-bezier(0.18, 0.89, 0.32, 1.28) infinite;
+            }
+
+            .object-3 {
+                left: 10%;
+                animation: object-drop-3 5s cubic-bezier(0.18, 0.89, 0.32, 1.28) infinite;
+                animation-delay: 1s;
+            }
+
+            .light {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) scale(1);
+                width: 80%;
+                height: auto;
+                mix-blend-mode: screen;
+                animation: pulse-light 1s ease-in infinite alternate;
+                z-index: 1;
+            }
+
+            .modal {
+                display: none;
+                position: absolute;
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+                top: 30%;
+                left: 0;
+                right: 0;
+                z-index: 10;
+                padding: 10px;
+            }
+
+            .modalWin {
+                width: 80%;
+            }
+
+            .modalTitle {
+                font-size: 20px;
+                color: black;
+                font-weight: 700;
+                text-align: center;
+            }
+
+            .modalDescription {
+                font-size: 28px;
+                color: #701404;
+                font-weight: 900;
+                text-align: center;
+                text-transform: uppercase;
+            }
+
+            .overlay {
+                opacity: 0;
+                transition: opacity 0.3s ease-in-out;
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                backdrop-filter: blur(4px);
+                z-index: 1;
+                pointer-events: none;
+            }
+
+            .winner {
+                .frame {
+                    display: none;
+                }
+                .modal {
+                    display: flex;
+                }
+                .overlay {
+                    opacity: 1;
+                }
+                .startButton {
+                    display: none;
+                }
+                .resultButton {
+                    display: grid;
+                }
+            }
+
+            @keyframes pulse-light {
+                from {
+                    transform: translate(-50%, -50%) scale(2);
+                }
+                to {
+                    transform: translate(-50%, -50%) scale(4);
+                }
+            }
+
+            @keyframes pulse {
+                from {
+                    transform: scale(1)
+                }
+                to {
+                    transform: scale(1.2)
+                }
+            }
+
+            @keyframes rotation {
+                0% {
+                    transform: rotateY(0deg) scale(1);
+                }
+                50% {
+                    transform: rotateY(180deg) scale(1.3);
+                }
+                100% {
+                    transform: rotateY(360deg) scale(1);
+                }
+            }
+
+            @keyframes rotationCoin {
+                from {
+                    transform: rotateZ(0deg);
+                }
+                to {
+                    transform: rotateZ(360deg);
+                }
+            }
+
+            @keyframes object-drop-1 {
+                0% {
+                    transform: translateY(-100%) rotate(0);
+                }
+                30% {
+                    transform: translateY(15vh) rotate(110deg);
+                }
+                70% {
+                    transform: translateY(15vh) rotate(110deg);
+                }
+                100% {
+                    transform: translateY(105vh) rotate(240deg);
+                }
+            }
+
+            @keyframes object-drop-2 {
+                0% {
+                    transform: translateY(-100%) rotate(0);
+                }
+                30% {
+                    transform: translateY(25vh) rotate(110deg);
+                }
+                70% {
+                    transform: translateY(25vh) rotate(110deg);
+                }
+                100% {
+                    transform: translateY(105vh) rotate(240deg);
+                }
+            }
+
+            @keyframes object-drop-3 {
+                0% {
+                    transform: translateY(-100%) rotate(0);
+                }
+                30% {
+                    transform: translateY(70vh) rotate(110deg);
+                }
+                70% {
+                    transform: translateY(70vh) rotate(110deg);
+                }
+                100% {
+                    transform: translateY(105vh) rotate(240deg);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <img
+            src="bg-mob.jpg"
+            srcset='
+                bg-mob.jpg 500w,
+                bg-desktop.jpg 1568w,
+            '
+            alt="background"
+            class="bg"
+        />
+        <div class="container">
+            <img src='light.png' alt="arrow" class="light" />
+            <img src='logo.png' alt="logo" class="logo" />
+            <img src='person.gif' alt="person" class="person" />
+            <img src='object-1.png' alt="object" class="object object-1" />
+            <img src='object-2.png' alt="object" class="object object-2" />
+            <img src='object-3.png' alt="object" class="object object-3" />
+            <div class="frame">
+                <div class="gradientTop"></div>
+                <div class="gradientBottom"></div>
+                <img src='frame.png' alt="frame" class="frameImg" />
+                <div class="spinItem">
+                    <div class="reels">
+                        <img src='spin-item-1.png' alt="spinItemImg" class="reelsImg winner" />
+                        <img src='spin-item-2.png' alt="spinItemImg" class="reelsImg" />
+                        <img src='spin-item-3.png' alt="spinItemImg" class="reelsImg" />
+                        <img src='spin-item-4.png' alt="spinItemImg" class="reelsImg" />
+                        <img src='spin-item-5.png' alt="spinItemImg" class="reelsImg" />
+                        <img src='spin-item-6.png' alt="spinItemImg" class="reelsImg" />
+                        <img src='spin-item-7.png' alt="spinItemImg" class="reelsImg" />
+                        <img src='spin-item-8.png' alt="spinItemImg" class="reelsImg" />
+                    </div>
+                </div>
+                <div class="spinItem">
+                    <div class="reels">
+                        <img src='spin-item-3.png' alt="spinItemImg" class="reelsImg" />
+                        <img src='spin-item-2.png' alt="spinItemImg" class="reelsImg" />
+                        <img src='spin-item-6.png' alt="spinItemImg" class="reelsImg" />
+                        <img src='spin-item-4.png' alt="spinItemImg" class="reelsImg" />
+                        <img src='spin-item-1.png' alt="spinItemImg" class="reelsImg winner" />
+                        <img src='spin-item-5.png' alt="spinItemImg" class="reelsImg" />
+                        <img src='spin-item-8.png' alt="spinItemImg" class="reelsImg" />
+                        <img src='spin-item-7.png' alt="spinItemImg" class="reelsImg" />
+                    </div>
+                </div>
+                <div class="spinItem">
+                    <div class="reels">
+                        <img src='spin-item-4.png' alt="spinItemImg" class="reelsImg" />
+                        <img src='spin-item-3.png' alt="spinItemImg" class="reelsImg" />
+                        <img src='spin-item-6.png' alt="spinItemImg" class="reelsImg" />
+                        <img src='spin-item-5.png' alt="spinItemImg" class="reelsImg" />
+                        <img src='spin-item-1.png' alt="spinItemImg" class="reelsImg winner" />
+                        <img src='spin-item-8.png' alt="spinItemImg" class="reelsImg" />
+                        <img src='spin-item-7.png' alt="spinItemImg" class="reelsImg" />
+                        <img src='spin-item-2.png' alt="spinItemImg" class="reelsImg" />
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="startButton" id="startButton">
+                <span class="startButtonTop">
+                    <img src='button.png' alt="logo" class="" />
+                    <span class="startButtonText">
+                        $clickButton
+                    </span>
+                </span>
+            </button>
+            <a href="$linkToOffer" class="resultButton" id="resultButton">
+                <span class="startButtonTop">
+                    <img src='button.png' alt="logo" class="" />
+                    <span class="startButtonText">
+                        $bonusesButton
+                    </span>
+                </span>
+            </a>
+            <div class="modal">
+                <img src='title.png' alt="modal" class="modalWin" />
+                <p class="modalTitle">$bonusesWindowTitle</p>
+                <p class="modalDescription">$bonusesWindowDescription</p>
+            </div>
+        </div>
+        <div class="overlay"></div>
+        <audio id="spinSound" src="./slots.wav"></audio>
+        <audio id="winSound" src="./win.mp3"></audio>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                let spinCount = 1
+                const revolutions = 2
+                const spinMultiplier = 10
+                const imgMultiplier = 8
+                const reelsList = document.querySelectorAll(".reels")
+                const startButton = document.getElementById("startButton")
+                const reelsImg = document.querySelector(".reelsImg")
+                const frame = document.querySelector(".frame")
+                const resultButton = document.getElementById(".resultButton")
+                const spinSound = document.getElementById("spinSound")
+                const winSound = document.getElementById("winSound")
+
+                const winPosArr = [86.1, 91.64, 91.64] // custom percentage for win position. Bullshit but works
+
+                reelsImg.onload = () => {
+                    requestAnimationFrame(() => {
+                        const reelsImgRect = reelsImg.getBoundingClientRect()
+                        const reelsImgHeight = reelsImgRect.height
+        
+                        // images cloning
+                        reelsList.forEach((reel) => {
+                            const originalChildren = Array.from(reel.children)
+                            for (let i = 0; i < imgMultiplier; i++) {
+                                originalChildren.forEach((child) => {
+                                    const clone = child.cloneNode(true)
+                                    reel.appendChild(clone)
+                                })
+                            }
+                        })
+        
+                        startButton.addEventListener("click", () => {
+                            startButton.disabled = true
+                            spinSound.play()
+
+                            if (spinCount < revolutions) {
+                                spinReels()
+                            } else {
+                                alignWinningLine()
+                            }
+                        })
+        
+                        function spinReels() {
+                            reelsList.forEach((reel, i) => {
+                                setTimeout(() => {
+                                    reel.style.transform = `translateY(-${reelsImgHeight * spinMultiplier * spinCount}px)`
+                                }, i * 200)
+                            })
+
+                            setTimeout(() => {
+                                startButton.disabled = false
+                            }, 3000)
+
+                            spinCount++
+                        }
+
+                        function alignWinningLine() {
+                            reelsList.forEach((reel, index) => {
+                                const originalChildren = Array.from(reel.children)
+                                const lastWinImg = originalChildren.findLast(child => child.classList.contains('winner'))
+                            //     const lastWinImgPosY = lastWinImg.getBoundingClientRect().top
+                            //     const framePosY = frame.getBoundingClientRect().top
+                            //     const centerFrameOffset = frame.getBoundingClientRect().height / 2
+                            //     const centerImgOffset = reelsImgHeight / 2
+                            //     const translateY = lastWinImgPosY - framePosY - centerFrameOffset + centerImgOffset
+                            //
+                            //     console.log('lastWinImgPosY: ', {lastWinImgPosY, framePosY, centerFrameOffset, translateY})
+                            //
+                            //     setTimeout(() => {
+                            //         reel.style.transform = `translateY(-${translateY}px)`
+                            //     }, index * 200)
+
+                                setTimeout(() => {
+                                    reel.style.transform = `translateY(-${winPosArr[index]}%)`
+                                }, index * 200)
+
+                                setTimeout(() => {
+                                    lastWinImg.classList.add('rotation')
+                                    winSound.play()
+                                }, 3000)
+
+                                setTimeout(() => {
+                                    document.body.classList.add('winner')
+                                }, 5000)
+                            })
+                        }
+                    });
+                }
+        
+                if (reelsImg.complete) {
+                    reelsImg.onload();
+                }
+
+                // Disable the result button if the href is still $linkTo
+                if (resultButton.href.includes("$linkTo")) {
+                    resultButton.style.pointerEvents = 'none'
+                }
+            })
+        </script>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
