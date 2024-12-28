@@ -56,10 +56,15 @@
             height: 100%;
             width: 100%;
             max-width: 350px;
-            padding: 20px 20px 100px 20px;
+            padding: 20px 20px 40px 20px;
             display: grid;
             grid-template-rows: auto 1fr;
-            gap: 40px;
+            gap: 0;
+
+            @media (min-width: 480px) {
+                padding-bottom: 100px;
+                gap: 40px;
+            }
         }
 
         .logo {
@@ -199,13 +204,17 @@
         .coins {
             position: fixed;
             inset: 0;
-            width: 50%;
+            width: 100%;
             height: auto;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: -1;
             pointer-events: none;
+
+            @media (min-width: 480px) {
+                width: 50%;
+            }
         }
 
         .isWinner {
@@ -308,143 +317,144 @@
 
     </style>
 </head>
-    <body>
-        <img
-            src="bg-mob.jpg"
-            srcset='
+<body>
+<img
+        src="bg-mob.jpg"
+        srcset='
                 bg-mob.jpg 500w,
                 bg-desktop.jpg 1568w,
             '
-            alt="background"
-            class="bg"
-        />
-        <div class="container">
-            <img src='logo.png' alt="logo" class="logo" />
-            <img src='light.png' alt="arrow" class="light" />
-            <div class="scratch">
-                <div class="scratchCard isAnimated">
-                    <div class="scratchCardWrapper">
-                        <canvas class="scratchCanvas"></canvas>
-                        <div class="result">
-                            <img src="./win-object.png" alt="win-object">
-                        </div>
-                    </div>
-                </div>
-                <div class="scratchCard">
-                    <div class="scratchCardWrapper">
-                        <canvas class="scratchCanvas"></canvas>
-                        <div class="result"></div>
-                    </div>
-                </div>
-                <div class="scratchCard">
-                    <div class="scratchCardWrapper">
-                        <canvas class="scratchCanvas"></canvas>
-                        <div class="result">
-                            <img src="./win-object.png" alt="win-object">
-                        </div>
-                    </div>
+        alt="background"
+        class="bg"
+/>
+<div class="container">
+    <img src='logo.png' alt="logo" class="logo" />
+    <img src='light.png' alt="arrow" class="light" />
+    <div class="scratch">
+        <div class="scratchCard isAnimated">
+            <div class="scratchCardWrapper">
+                <canvas class="scratchCanvas"></canvas>
+                <div class="result">
+                    <img src="./win-object.png" alt="win-object">
                 </div>
             </div>
-            <div class="modal">
-                <img src='coins.gif' alt="coins" class="coins" />
-                <img src='title.png' alt="modal" class="modalWin" />
-                <p class="modalTitle">$bonusesWindowTitle</p>
-                <p class="modalDescription">$bonusesWindowDescription</p>
+        </div>
+        <div class="scratchCard">
+            <div class="scratchCardWrapper">
+                <canvas class="scratchCanvas"></canvas>
+                <div class="result"></div>
             </div>
-            <a href="$linkToOffer" class="resultButton" id="resultButton">
+        </div>
+        <div class="scratchCard">
+            <div class="scratchCardWrapper">
+                <canvas class="scratchCanvas"></canvas>
+                <div class="result">
+                    <img src="./win-object.png" alt="win-object">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal">
+        <img src='coins.gif' alt="coins" class="coins" />
+        <img src='title.png' alt="modal" class="modalWin" />
+        <p class="modalTitle">$bonusesWindowTitle</p>
+        <p class="modalDescription">$bonusesWindowDescription</p>
+    </div>
+    <a href="$linkToOffer" class="resultButton" id="resultButton">
                 <span class="startButtonWrap">
                     <img src='button.png' alt="logo" class="startButtonImg" />
                     <span class="startButtonText">
                         $bonusesButton
                     </span>
               </span>
-            </a>
-        </div>
-        <div class="overlay"></div>
-        <audio id="winSound" src="win.mp3"></audio>
-        <script>
-            const cards = document.querySelectorAll('.scratchCard')
-            const winSound = document.getElementById("winSound")
+    </a>
+</div>
+<div class="overlay"></div>
+<audio id="winSound" src="win.mp3"></audio>
+<script>
+    const cards = document.querySelectorAll('.scratchCard')
+    const winSound = document.getElementById("winSound")
 
-            cards.forEach((card) => {
-                const canvas = card.querySelector('.scratchCanvas')
-                const ctx = canvas.getContext('2d')
+    cards.forEach((card) => {
+        const canvas = card.querySelector('.scratchCanvas')
+        const ctx = canvas.getContext('2d')
 
-                canvas.width = canvas.offsetWidth
-                canvas.height = canvas.offsetHeight
-                const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height)
-                gradient.addColorStop(0, '#ff9800')
-                gradient.addColorStop(1, '#ff5722')
+        canvas.width = canvas.offsetWidth
+        canvas.height = canvas.offsetHeight
+        const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height)
+        gradient.addColorStop(0, '#ff9800')
+        gradient.addColorStop(1, '#ff5722')
 
-                ctx.fillStyle = gradient
-                ctx.fillRect(0, 0, canvas.width, canvas.height)
-                ctx.globalCompositeOperation = 'destination-out'
+        ctx.fillStyle = gradient
+        ctx.fillRect(0, 0, canvas.width, canvas.height)
+        ctx.globalCompositeOperation = 'destination-out'
 
-                let isDrawing = false
+        let isDrawing = false
 
-                function startDrawing(e) {
-                    cards[0].classList.remove('isAnimated')
-                    isDrawing = true
-                    draw(e)
+        function startDrawing(e) {
+            cards[0].classList.remove('isAnimated')
+            isDrawing = true
+            draw(e)
+        }
+
+        function endDrawing() {
+            isDrawing = false
+
+            // Check if the canvas is cleared enough
+            const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height)
+            let clearedPixels = 0
+            for (let i = 0; i < imageData.data.length; i += 4) {
+                if (imageData.data[i + 3] === 0) {
+                    clearedPixels++
                 }
+            }
 
-                function endDrawing() {
-                    isDrawing = false
+            const clearedPercentage = (clearedPixels / (canvas.width * canvas.height)) * 100
+            if (clearedPercentage > 70) {
+                card.classList.add('isCleared')
+                ctx.clearRect(0, 0, canvas.width, canvas.height)
+            }
 
-                    // Check if the canvas is cleared enough
-                    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height)
-                    let clearedPixels = 0
-                    for (let i = 0; i < imageData.data.length; i += 4) {
-                        if (imageData.data[i + 3] === 0) {
-                            clearedPixels++
-                        }
-                    }
+            // Check if all cards are cleared
+            const allCleared = Array.from(cards).every(card => card.classList.contains('isCleared'))
+            if (allCleared) {
+                setTimeout(() => {
+                    document.body.classList.add('isWinner')
+                    winSound.play()
+                }, 1000)
+            }
+        }
 
-                    const clearedPercentage = (clearedPixels / (canvas.width * canvas.height)) * 100
-                    if (clearedPercentage > 70) {
-                        card.classList.add('isCleared')
-                        ctx.clearRect(0, 0, canvas.width, canvas.height)
-                    }
+        function draw(e) {
+            if (!isDrawing) return
 
-                    // Check if all cards are cleared
-                    const allCleared = Array.from(cards).every(card => card.classList.contains('isCleared'))
-                    if (allCleared) {
-                        setTimeout(() => {
-                            document.body.classList.add('isWinner')
-                            winSound.play()
-                        }, 1000)
-                    }
-                }
+            const rect = canvas.getBoundingClientRect()
+            const x = e.clientX - rect.left
+            const y = e.clientY - rect.top
 
-                function draw(e) {
-                    if (!isDrawing) return
+            ctx.beginPath()
+            ctx.arc(x, y, 40, 0, Math.PI * 3)
+            ctx.fill()
+        }
 
-                    const rect = canvas.getBoundingClientRect()
-                    const x = e.clientX - rect.left
-                    const y = e.clientY - rect.top
+        // mouse events
+        canvas.addEventListener('mousedown', startDrawing)
+        canvas.addEventListener('mousemove', draw)
+        canvas.addEventListener('mouseup', endDrawing)
+        canvas.addEventListener('mouseleave', endDrawing)
 
-                    ctx.beginPath()
-                    ctx.arc(x, y, 40, 0, Math.PI * 3)
-                    ctx.fill()
-                }
-
-                // mouse events
-                canvas.addEventListener('mousedown', startDrawing)
-                canvas.addEventListener('mousemove', draw)
-                canvas.addEventListener('mouseup', endDrawing)
-                canvas.addEventListener('mouseleave', endDrawing)
-
-                // mobile events
-                canvas.addEventListener('touchstart', (e) => {
-                    e.preventDefault()
-                    startDrawing(e.touches[0])
-                });
-                canvas.addEventListener('touchmove', (e) => {
-                    e.preventDefault()
-                    draw(e.touches[0])
-                });
-                canvas.addEventListener('touchend', endDrawing)
-            })
-        </script>
-    </body>
+        // mobile events
+        canvas.addEventListener('touchstart', (e) => {
+            e.preventDefault()
+            console.log('e: ', e)
+            startDrawing(e.touches[0])
+        });
+        canvas.addEventListener('touchmove', (e) => {
+            e.preventDefault()
+            draw(e.touches[0])
+        });
+        canvas.addEventListener('touchend', endDrawing)
+    })
+</script>
+</body>
 </html>
